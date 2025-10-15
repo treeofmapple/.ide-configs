@@ -17,7 +17,9 @@
 
       "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
       "ctrl-\\": "pane::SplitVertical",
-      "alt-\\": "pane::SplitHorizontal",
+      "ctrl-shift-\\": "pane::SplitHorizontal",
+      // "alt-\\": "pane::Close",
+      // "alt-shift-\\": "pane::Close",
 
       "alt-s": "go_to_line::Toggle",
       "alt-b": "workspace::ToggleRightDock",
@@ -27,7 +29,6 @@
       "ctrl-2": "file_finder::Toggle",
 
       "alt-c": "editor::SelectAllMatches",
-      "alt-d": "editor::AddSelectionAbove", // clear all cursors
       "alt-f": "editor::AddSelectionAbove",
       "alt-v": "editor::AddSelectionBelow",
 
@@ -36,7 +37,9 @@
       "ctrl-shift-f": "editor::Format",
       "alt-shift-f": null,
       "ctrl-shift-e": null,
-      "ctrl-1": "editor::ToggleCodeActions"
+      "ctrl-1": "editor::ToggleCodeActions",
+      "ctrl-[": null,
+      "ctrl-]": null
     }
   },
   {
@@ -65,15 +68,6 @@
     }
   },
   {
-    "bindings": {}
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-shift-e": null
-    }
-  },
-  {
     "context": "AgentPanel",
     "bindings": {
       "ctrl-shift-e": null
@@ -82,18 +76,9 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-q e": "outline_panel::ToggleFocus"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-q w": "git_panel::ToggleFocus"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
+      "ctrl-q w": "git_panel::ToggleFocus",
+      "ctrl-q e": "outline_panel::ToggleFocus",
+      "ctrl-shift-e": null,
       "ctrl-shift-g": null,
       "ctrl-q": "command_palette::Toggle",
       "ctrl-q q": "project_panel::ToggleFocus",
@@ -104,6 +89,13 @@
     "context": "Editor",
     "bindings": {
       "ctrl-.": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-,": "workspace::ActivatePaneLeft",
+      "ctrl-.": "workspace::ActivatePaneRight",
+      "ctrl-alt-,": null
     }
   }
 ]
