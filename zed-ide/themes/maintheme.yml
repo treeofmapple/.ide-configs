@@ -29,7 +29,7 @@
             "editor.line_number": "#4e5a5f",
             "editor.active_line_number": "#d0d4da",
             "editor.hover_line_number": "#acb0b4",
-            "status_bar.background": "#3333",
+            "status_bar.background": "#333333",
 
             "link_text.hover": "#74ade8ff",
             "version_control.added": "#27a657ff",

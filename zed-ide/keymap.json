@@ -1,65 +1,109 @@
 [
-    {
-        "context": "Editor",
-        "bindings": {
-            "f5": [
-                "task::Spawn",
-                {
-                    "task_name": "Java: Compile & Run Current File"
-                }
-            ],
-
-            "ctrl-f2": "task::Rerun",
-
-            "ctrl-d": "editor::DeleteLine",
-            "ctrl-/": "editor::ToggleComments",
-            "ctrl-x": "editor::Redo",
-
-            "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
-            "ctrl-\\": "pane::SplitVertical",
-            "alt-\\": "pane::SplitHorizontal",
-
-            "alt-s": "go_to_line::Toggle",
-            "alt-b": "workspace::ToggleRightDock",
-            "ctrl-b": "outline_panel::FoldDirectory",
-
-            "ctrl-3": "editor::GoToDefinition",
-            "ctrl-2": "file_finder::Toggle",
-
-            "alt-c": "editor::SelectAllMatches",
-            "alt-d": "editor::AddSelectionAbove", // clear all cursors
-            "alt-f": "editor::AddSelectionAbove",
-            "alt-v": "editor::AddSelectionBelow",
-
-            "ctrl-alt-b": null
+  {
+    "context": "Editor",
+    "bindings": {
+      "f5": [
+        "task::Spawn",
+        {
+          "task_name": "Java: Compile & Run Current File"
         }
-    },
-    {
-        "context": "Pane",
-        "bindings": {
-            "ctrl-1": "project_search::ToggleFocus"
-        }
-    },
-    {
-        "context": "OutlinePanel",
-        "bindings": {
-            "ctrl-b": "outline_panel::FoldDirectory"
-        }
-    },
-    {
-        "context": "ProjectPanel",
-        "bindings": {
-            "alt-b": "workspace::ToggleRightDock"
-        }
-    },
-    {
-        "context": "RunModal",
-        "bindings": {
-            "ctrl-tab": "pane::ActivateNextItem",
-            "ctrl-shift-tab": "pane::ActivatePreviousItem"
-        }
-    },
-    {
-        "bindings": {}
+      ],
+
+      "ctrl-f2": "task::Rerun",
+
+      "ctrl-d": "editor::DeleteLine",
+      "ctrl-/": "editor::ToggleComments",
+      "ctrl-x": "editor::Redo",
+
+      "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
+      "ctrl-\\": "pane::SplitVertical",
+      "alt-\\": "pane::SplitHorizontal",
+
+      "alt-s": "go_to_line::Toggle",
+      "alt-b": "workspace::ToggleRightDock",
+      "ctrl-b": "outline_panel::FoldDirectory",
+
+      "ctrl-3": "editor::GoToDefinition",
+      "ctrl-2": "file_finder::Toggle",
+
+      "alt-c": "editor::SelectAllMatches",
+      "alt-d": "editor::AddSelectionAbove", // clear all cursors
+      "alt-f": "editor::AddSelectionAbove",
+      "alt-v": "editor::AddSelectionBelow",
+
+      "ctrl-alt-b": null,
+
+      "ctrl-shift-f": "editor::Format",
+      "alt-shift-f": null,
+      "ctrl-shift-e": null,
+      "ctrl-1": "editor::ToggleCodeActions"
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-1": "project_search::ToggleFocus"
+    }
+  },
+  {
+    "context": "OutlinePanel",
+    "bindings": {
+      "ctrl-b": "outline_panel::FoldDirectory"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "alt-b": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "RunModal",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "bindings": {}
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-e": null
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-shift-e": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-q e": "outline_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-q w": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-g": null,
+      "ctrl-q": "command_palette::Toggle",
+      "ctrl-q q": "project_panel::ToggleFocus",
+      "ctrl-q ctrl-q": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-.": null
+    }
+  }
 ]
