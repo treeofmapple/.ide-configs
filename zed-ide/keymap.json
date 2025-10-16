@@ -9,7 +9,7 @@
         }
       ],
 
-      "ctrl-f2": "task::Rerun",
+      // "ctrl-f2": "task::Rerun",
 
       "ctrl-d": "editor::DeleteLine",
       "ctrl-/": "editor::ToggleComments",
@@ -17,9 +17,7 @@
 
       "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
       "ctrl-\\": "pane::SplitVertical",
-      "ctrl-shift-\\": "pane::SplitHorizontal",
-      // "alt-\\": "pane::Close",
-      // "alt-shift-\\": "pane::Close",
+      "alt-\\": "pane::SplitHorizontal",
 
       "alt-s": "go_to_line::Toggle",
       "alt-b": "workspace::ToggleRightDock",
@@ -29,17 +27,18 @@
       "ctrl-2": "file_finder::Toggle",
 
       "alt-c": "editor::SelectAllMatches",
-      "alt-f": "editor::AddSelectionAbove",
-      "alt-v": "editor::AddSelectionBelow",
-
-      "ctrl-alt-b": null,
+      "alt-1": "editor::AddSelectionAbove",
+      "alt-2": "editor::AddSelectionBelow",
 
       "ctrl-shift-f": "editor::Format",
+      "ctrl-1": "editor::ToggleCodeActions",
+
+      "ctrl-alt-b": null,
       "alt-shift-f": null,
       "ctrl-shift-e": null,
-      "ctrl-1": "editor::ToggleCodeActions",
       "ctrl-[": null,
-      "ctrl-]": null
+      "ctrl-]": null,
+      "ctrl-.": null
     }
   },
   {
@@ -78,24 +77,31 @@
     "bindings": {
       "ctrl-q w": "git_panel::ToggleFocus",
       "ctrl-q e": "outline_panel::ToggleFocus",
+      "ctrl-q": "command_palette::Toggle",
+      "ctrl-q ctrl-q": "project_panel::ToggleFocus",
+      "ctrl-shift-q": "workspace::ToggleLeftDock",
+
       "ctrl-shift-e": null,
       "ctrl-shift-g": null,
-      "ctrl-q": "command_palette::Toggle",
-      "ctrl-q q": "project_panel::ToggleFocus",
-      "ctrl-q ctrl-q": "command_palette::Toggle"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-.": null
+      "ctrl-e": null,
+      "ctrl-w": null
     }
   },
   {
     "bindings": {
       "ctrl-,": "workspace::ActivatePaneLeft",
       "ctrl-.": "workspace::ActivatePaneRight",
-      "ctrl-alt-,": null
+      "alt-,": "workspace::SwapPaneLeft",
+      "alt-.": "workspace::SwapPaneRight",
+      "ctrl-alt-,": "pane::SplitAndMoveLeft",
+      "ctrl-alt-.": "pane::SplitAndMoveRight",
+      "alt-home": "pane::SplitAndMoveUp",
+      "alt-end": "pane::SplitAndMoveDown",
+      "shift-f1": "terminal_panel::ToggleFocus",
+      "alt-shift-f1": "workspace::OpenInTerminal",
+      "ctrl-alt-shift-p": "workspace::Reload",
+      "ctrl-q": null,
+      "ctrl-shift-w": null
     }
   }
 ]
