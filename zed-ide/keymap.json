@@ -44,7 +44,8 @@
   {
     "context": "Pane",
     "bindings": {
-      "ctrl-1": "project_search::ToggleFocus"
+      "ctrl-1": "project_search::ToggleFocus",
+      "ctrl-shift-f": null
     }
   },
   {
@@ -69,7 +70,8 @@
   {
     "context": "AgentPanel",
     "bindings": {
-      "ctrl-shift-e": null
+      "ctrl-shift-e": null,
+      "ctrl-shift-h": null
     }
   },
   {
