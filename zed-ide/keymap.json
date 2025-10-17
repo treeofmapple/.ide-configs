@@ -1,65 +1,109 @@
 [
-    {
-        "context": "Editor",
-        "bindings": {
-            "f5": [
-                "task::Spawn",
-                {
-                    "task_name": "Java: Compile & Run Current File"
-                }
-            ],
-
-            "ctrl-f2": "task::Rerun",
-
-            "ctrl-d": "editor::DeleteLine",
-            "ctrl-/": "editor::ToggleComments",
-            "ctrl-x": "editor::Redo",
-
-            "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
-            "ctrl-\\": "pane::SplitVertical",
-            "alt-\\": "pane::SplitHorizontal",
-
-            "alt-s": "go_to_line::Toggle",
-            "alt-b": "workspace::ToggleRightDock",
-            "ctrl-b": "outline_panel::FoldDirectory",
-
-            "ctrl-3": "editor::GoToDefinition",
-            "ctrl-2": "file_finder::Toggle",
-
-            "alt-c": "editor::SelectAllMatches",
-            "alt-d": "editor::AddSelectionAbove", // clear all cursors
-            "alt-f": "editor::AddSelectionAbove",
-            "alt-v": "editor::AddSelectionBelow",
-
-            "ctrl-alt-b": null
+  {
+    "context": "Editor",
+    "bindings": {
+      "f5": [
+        "task::Spawn",
+        {
+          "task_name": "Java: Compile & Run Current File"
         }
-    },
-    {
-        "context": "Pane",
-        "bindings": {
-            "ctrl-1": "project_search::ToggleFocus"
-        }
-    },
-    {
-        "context": "OutlinePanel",
-        "bindings": {
-            "ctrl-b": "outline_panel::FoldDirectory"
-        }
-    },
-    {
-        "context": "ProjectPanel",
-        "bindings": {
-            "alt-b": "workspace::ToggleRightDock"
-        }
-    },
-    {
-        "context": "RunModal",
-        "bindings": {
-            "ctrl-tab": "pane::ActivateNextItem",
-            "ctrl-shift-tab": "pane::ActivatePreviousItem"
-        }
-    },
-    {
-        "bindings": {}
+      ],
+
+      // "ctrl-f2": "task::Rerun",
+
+      "ctrl-d": "editor::DeleteLine",
+      "ctrl-/": "editor::ToggleComments",
+      "ctrl-x": "editor::Redo",
+
+      "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
+      "ctrl-\\": "pane::SplitVertical",
+      "alt-\\": "pane::SplitHorizontal",
+
+      "alt-s": "go_to_line::Toggle",
+      "alt-b": "workspace::ToggleRightDock",
+      "ctrl-b": "outline_panel::FoldDirectory",
+
+      "ctrl-3": "editor::GoToDefinition",
+      "ctrl-2": "file_finder::Toggle",
+
+      "alt-c": "editor::SelectAllMatches",
+      "alt-1": "editor::AddSelectionAbove",
+      "alt-2": "editor::AddSelectionBelow",
+
+      "ctrl-shift-f": "editor::Format",
+      "ctrl-1": "editor::ToggleCodeActions",
+
+      "ctrl-alt-b": null,
+      "alt-shift-f": null,
+      "ctrl-shift-e": null,
+      "ctrl-[": null,
+      "ctrl-]": null,
+      "ctrl-.": null
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-1": "project_search::ToggleFocus",
+      "ctrl-shift-f": null
+    }
+  },
+  {
+    "context": "OutlinePanel",
+    "bindings": {
+      "ctrl-b": "outline_panel::FoldDirectory"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "alt-b": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "RunModal",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-shift-e": null,
+      "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-q w": "git_panel::ToggleFocus",
+      "ctrl-q e": "outline_panel::ToggleFocus",
+      "ctrl-q": "command_palette::Toggle",
+      "ctrl-q ctrl-q": "project_panel::ToggleFocus",
+      "ctrl-shift-q": "workspace::ToggleLeftDock",
+
+      "ctrl-shift-e": null,
+      "ctrl-shift-g": null,
+      "ctrl-e": null,
+      "ctrl-w": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-,": "workspace::ActivatePaneLeft",
+      "ctrl-.": "workspace::ActivatePaneRight",
+      "alt-,": "workspace::SwapPaneLeft",
+      "alt-.": "workspace::SwapPaneRight",
+      "ctrl-alt-,": "pane::SplitAndMoveLeft",
+      "ctrl-alt-.": "pane::SplitAndMoveRight",
+      "alt-home": "pane::SplitAndMoveUp",
+      "alt-end": "pane::SplitAndMoveDown",
+      "shift-f1": "terminal_panel::ToggleFocus",
+      "alt-shift-f1": "workspace::OpenInTerminal",
+      "ctrl-alt-shift-p": "workspace::Reload",
+      "ctrl-q": null,
+      "ctrl-shift-w": null
+    }
+  }
 ]
