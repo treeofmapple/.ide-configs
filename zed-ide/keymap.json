@@ -105,5 +105,11 @@
       "ctrl-q": null,
       "ctrl-shift-w": null
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-shift-f1": "terminal_panel::Toggle"
+    }
   }
 ]
