@@ -82,6 +82,7 @@
       "ctrl-q": "command_palette::Toggle",
       "ctrl-q ctrl-q": "project_panel::ToggleFocus",
       "ctrl-shift-q": "workspace::ToggleLeftDock",
+      "ctrl-alt-q": "workspace::ToggleRightDock",
 
       "ctrl-shift-e": null,
       "ctrl-shift-g": null,
