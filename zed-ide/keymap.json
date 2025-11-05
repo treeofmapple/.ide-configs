@@ -2,15 +2,6 @@
   {
     "context": "Editor",
     "bindings": {
-      "f5": [
-        "task::Spawn",
-        {
-          "task_name": "Java: Compile & Run Current File"
-        }
-      ],
-
-      // "ctrl-f2": "task::Rerun",
-
       "ctrl-d": "editor::DeleteLine",
       "ctrl-/": "editor::ToggleComments",
       "ctrl-x": "editor::Redo",
@@ -84,6 +75,31 @@
       "alt-v": "workspace::ToggleLeftDock",
       "ctrl-alt-q": "workspace::ToggleRightDock",
 
+      "ctrl-alt-shift-o": [
+        "projects::OpenRemote",
+        {
+          "from_existing_connection": false,
+          "create_new_window": false
+        }
+      ],
+      "ctrl-shift-o": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ],
+
+      "ctrl-r": [
+        "task::Rerun",
+        {
+          "reevaluate_context": false
+        }
+      ],
+
+      "alt-shift-t": null,
+      "alt-shift-r": null,
+      "ctrl-shift-r": null,
+      "alt-t": null,
       "ctrl-shift-e": null,
       "ctrl-shift-g": null,
       "ctrl-e": null,
@@ -101,7 +117,7 @@
 
       // Reload
       "ctrl-alt-shift-p": "workspace::Reload",
-      "ctrl-alt-shift-s": "editor::RestartLanguageServer",
+      "ctrl-alt-shift-r": "editor::RestartLanguageServer",
       "ctrl-alt-shift-x": "zed::ReloadExtensions",
 
       // Moving important
@@ -140,7 +156,13 @@
         { "destination": 1, "focus": true, "clone": false }
       ],
       */
-
     }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-e": "outline::Toggle"
+    },
+    "ctrl-shift-o": null
   }
 ]
