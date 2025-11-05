@@ -6,7 +6,7 @@
     "dark": "Material Icon Theme"
   },
   "project_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "telemetry": {
     "metrics": false,

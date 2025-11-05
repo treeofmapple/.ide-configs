@@ -81,7 +81,7 @@
       "ctrl-q e": "outline_panel::ToggleFocus",
       "ctrl-q": "command_palette::Toggle",
       "ctrl-q ctrl-q": "project_panel::ToggleFocus",
-      "ctrl-shift-q": "workspace::ToggleLeftDock",
+      "alt-v": "workspace::ToggleLeftDock",
       "ctrl-alt-q": "workspace::ToggleRightDock",
 
       "ctrl-shift-e": null,
@@ -92,25 +92,55 @@
   },
   {
     "bindings": {
-      "ctrl-,": "workspace::ActivatePaneLeft",
-      "ctrl-.": "workspace::ActivatePaneRight",
-      "alt-,": "workspace::SwapPaneLeft",
-      "alt-.": "workspace::SwapPaneRight",
-      "ctrl-alt-,": "pane::SplitAndMoveLeft",
-      "ctrl-alt-.": "pane::SplitAndMoveRight",
-      "alt-home": "pane::SplitAndMoveUp",
-      "alt-end": "pane::SplitAndMoveDown",
+      // Toggle Zoom
+      "alt-d": "workspace::ToggleZoom",
+
+      // Terminal
       "shift-f1": "terminal_panel::ToggleFocus",
       "alt-shift-f1": "workspace::OpenInTerminal",
+
+      // Reload
       "ctrl-alt-shift-p": "workspace::Reload",
+      "ctrl-alt-shift-s": "editor::RestartLanguageServer",
+      "ctrl-alt-shift-x": "zed::ReloadExtensions",
+
+      // Moving important
+      "alt-home": "pane::SplitAndMoveUp",
+      "alt-end": "pane::SplitAndMoveDown",
+
+      // More important
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-right": "workspace::ActivatePaneRight",
+      "alt-,": "workspace::SwapPaneLeft",
+      "alt-.": "workspace::SwapPaneRight",
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+      "ctrl-shift-,": "pane::SplitAndMoveLeft",
+      "ctrl-shift-.": "pane::SplitAndMoveRight",
+
+      // Don't missclick
       "ctrl-q": null,
       "ctrl-shift-w": null
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "alt-shift-f1": "terminal_panel::Toggle"
+
+      /*
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPane",
+        { "destination": 0, "focus": true, "clone": false }
+      ],
+      */
+      /*
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPane",
+        { "destination": 1, "focus": true, "clone": false }
+      ],
+      */
+
     }
   }
 ]
