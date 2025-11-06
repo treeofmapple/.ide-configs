@@ -11,7 +11,6 @@
       "alt-\\": "pane::SplitHorizontal",
 
       "alt-s": "go_to_line::Toggle",
-      "alt-b": "workspace::ToggleRightDock",
       "ctrl-b": "outline_panel::FoldDirectory",
 
       "ctrl-3": "editor::GoToDefinition",
@@ -36,6 +35,7 @@
     "context": "Pane",
     "bindings": {
       "ctrl-1": "project_search::ToggleFocus",
+      "alt-a": "search::ToggleWholeWord",
       "ctrl-shift-f": null
     }
   },
@@ -43,12 +43,6 @@
     "context": "OutlinePanel",
     "bindings": {
       "ctrl-b": "outline_panel::FoldDirectory"
-    }
-  },
-  {
-    "context": "ProjectPanel",
-    "bindings": {
-      "alt-b": "workspace::ToggleRightDock"
     }
   },
   {
@@ -68,12 +62,11 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-q w": "git_panel::ToggleFocus",
-      "ctrl-q e": "outline_panel::ToggleFocus",
-      "ctrl-q": "command_palette::Toggle",
-      "ctrl-q ctrl-q": "project_panel::ToggleFocus",
+      "alt-w": "git_panel::ToggleFocus",
+      "alt-e": "outline_panel::ToggleFocus",
+      "alt-q": "project_panel::ToggleFocus",
       "alt-v": "workspace::ToggleLeftDock",
-      "ctrl-alt-q": "workspace::ToggleRightDock",
+      "ctrl-t": "project_symbols::Toggle",
 
       "ctrl-alt-shift-o": [
         "projects::OpenRemote",
@@ -108,6 +101,7 @@
   },
   {
     "bindings": {
+      "alt-b": "workspace::ToggleRightDock",
       // Toggle Zoom
       "alt-d": "workspace::ToggleZoom",
 
@@ -117,7 +111,7 @@
 
       // Reload
       "ctrl-alt-shift-p": "workspace::Reload",
-      "ctrl-alt-shift-r": "editor::RestartLanguageServer",
+      "ctrl-alt-shift-e": "editor::RestartLanguageServer",
       "ctrl-alt-shift-x": "zed::ReloadExtensions",
 
       // Moving important
@@ -140,9 +134,17 @@
       "ctrl-shift-,": "pane::SplitAndMoveLeft",
       "ctrl-shift-.": "pane::SplitAndMoveRight",
 
+      "ctrl-'": "terminal_panel::Toggle",
+      "ctrl-alt-o": "workspace::Open",
+      "ctrl-k l": "workspace::AddFolderToProject",
+      "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
+      "ctrl-k ctrl-o": "editor::ToggleFold",
+
       // Don't missclick
+      "ctrl-o": null,
       "ctrl-q": null,
-      "ctrl-shift-w": null
+      "ctrl-shift-w": null,
+      "ctrl-shift-o": null
 
       /*
       "ctrl-alt-left": [
@@ -162,7 +164,6 @@
     "context": "(Editor && mode == full)",
     "bindings": {
       "ctrl-e": "outline::Toggle"
-    },
-    "ctrl-shift-o": null
+    }
   }
 ]
