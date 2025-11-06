@@ -140,7 +140,13 @@
       "ctrl-shift-,": "pane::SplitAndMoveLeft",
       "ctrl-shift-.": "pane::SplitAndMoveRight",
 
+      "ctrl-k l": "workspace::AddFolderToProject",
+      "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
+      "ctrl-k ctrl-o": "editor::ToggleFold",
+      "ctrl-alt-o": "workspace::Open",
+
       // Don't missclick
+      "ctrl-o": null,
       "ctrl-q": null,
       "ctrl-shift-w": null,
       "ctrl-shift-o": null
@@ -163,27 +169,6 @@
     "context": "(Editor && mode == full)",
     "bindings": {
       "ctrl-e": "outline::Toggle"
-    }
-  },
-  {
-    "bindings": {
-      "ctrl-k l": "workspace::AddFolderToProject"
-    }
-  },
-  {
-    "bindings": {
-      "ctrl-k ctrl-l": "project_panel::RemoveFromProject"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-k ctrl-o": "editor::ToggleFold"
-    }
-  },
-  {
-    "bindings": {
-      "ctrl-alt-o": "workspace::Open"
     }
   }
 ]
