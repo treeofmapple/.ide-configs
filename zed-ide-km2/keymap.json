@@ -180,5 +180,10 @@
     "bindings": {
       "ctrl-k ctrl-o": "editor::ToggleFold"
     }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-o": "workspace::Open"
+    }
   }
 ]
