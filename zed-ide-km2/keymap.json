@@ -66,6 +66,7 @@
       "alt-e": "outline_panel::ToggleFocus",
       "alt-q": "project_panel::ToggleFocus",
       "alt-v": "workspace::ToggleLeftDock",
+      "ctrl-t": "project_symbols::Toggle",
 
       "ctrl-alt-shift-o": [
         "projects::OpenRemote",
@@ -94,7 +95,6 @@
       "alt-t": null,
       "ctrl-shift-e": null,
       "ctrl-shift-g": null,
-      "ctrl-e": null,
       "ctrl-w": null
     }
   },
@@ -143,6 +143,7 @@
       "ctrl-k ctrl-o": "editor::ToggleFold",
       "ctrl-alt-o": "workspace::Open",
       "alt-b": "workspace::ToggleRightDock",
+      "ctrl-'": "terminal_panel::Toggle",
 
       // Don't missclick
       "ctrl-o": null,
