@@ -75,12 +75,6 @@
           "create_new_window": false
         }
       ],
-      "ctrl-shift-o": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": false
-        }
-      ],
 
       "ctrl-r": [
         "task::Rerun",
@@ -134,6 +128,12 @@
       "ctrl-shift-,": "pane::SplitAndMoveLeft",
       "ctrl-shift-.": "pane::SplitAndMoveRight",
 
+      "ctrl-shift-o": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ],
       "ctrl-'": "terminal_panel::Toggle",
       "ctrl-alt-o": "workspace::Open",
       "ctrl-k l": "workspace::AddFolderToProject",
@@ -143,8 +143,7 @@
       // Don't missclick
       "ctrl-o": null,
       "ctrl-q": null,
-      "ctrl-shift-w": null,
-      "ctrl-shift-o": null
+      "ctrl-shift-w": null
 
       /*
       "ctrl-alt-left": [
@@ -165,5 +164,6 @@
     "bindings": {
       "ctrl-e": "outline::Toggle"
     }
-  }
+  },
+  {}
 ]
