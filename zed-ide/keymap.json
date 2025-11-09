@@ -101,7 +101,7 @@
 
       // Terminal
       "shift-f1": "terminal_panel::ToggleFocus",
-      "alt-shift-f1": "workspace::OpenInTerminal",
+      "alt-shift-1": "workspace::OpenInTerminal",
 
       // Reload
       "ctrl-alt-shift-p": "workspace::Reload",
@@ -109,9 +109,6 @@
       "ctrl-alt-shift-x": "zed::ReloadExtensions",
 
       // Moving important
-      "alt-home": "pane::SplitAndMoveUp",
-      "alt-end": "pane::SplitAndMoveDown",
-
       // More important
       "alt-left": "workspace::ActivatePaneLeft",
       "alt-right": "workspace::ActivatePaneRight",
@@ -120,6 +117,14 @@
       "ctrl-alt-left": [
         "workspace::MoveItemToPaneInDirection",
         { "direction": "left" }
+      ],
+      "alt-[": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" }
+      ],
+      "alt-]": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" }
       ],
       "ctrl-alt-right": [
         "workspace::MoveItemToPaneInDirection",
@@ -165,5 +170,11 @@
       "ctrl-e": "outline::Toggle"
     }
   },
-  {}
+  {},
+  {
+    "context": "!Terminal",
+    "bindings": {
+      "ctrl-shift-c": null
+    }
+  }
 ]
