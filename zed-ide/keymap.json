@@ -23,12 +23,166 @@
       "ctrl-shift-f": "editor::Format",
       "ctrl-1": "editor::ToggleCodeActions",
 
+      "alt-shift-3": "editor::FindAllReferences",
+      "ctrl-alt-q": "editor::EditLogBreakpoint",
+      "ctrl-4": "editor::SelectAllMatches",
+      "ctrl-alt-3": "editor::GoToDefinitionSplit",
+
+      "f12": null,
+      "ctrl-alt-f12": null,
+      "alt-shift-f12": null,
+      "ctrl-f12": null,
+      "alt-f12": null,
+      "shift-f12": null,
+      "ctrl-f2": null,
       "ctrl-alt-b": null,
       "alt-shift-f": null,
       "ctrl-shift-e": null,
       "ctrl-[": null,
       "ctrl-]": null,
       "ctrl-.": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-v": "workspace::ToggleBottomDock",
+      "alt-shift-2": "debug_panel::ToggleFocus",
+
+      "alt-w": "git_panel::ToggleFocus",
+      "alt-e": "outline_panel::ToggleFocus",
+      "alt-q": "project_panel::ToggleFocus",
+      "alt-z": "workspace::ToggleLeftDock",
+      "ctrl-t": "project_symbols::Toggle",
+      "f5": "debugger::Start",
+      "shift-f5": "debugger::Rerun",
+
+      "ctrl-alt-shift-o": [
+        "projects::OpenRemote",
+        {
+          "from_existing_connection": false,
+          "create_new_window": false
+        }
+      ],
+
+      "ctrl-r": [
+        "task::Rerun",
+        {
+          "reevaluate_context": false
+        }
+      ],
+
+      "alt-shift-t": null,
+      "alt-shift-r": null,
+      "ctrl-shift-r": null,
+      "alt-t": null,
+      "ctrl-shift-e": null,
+      "ctrl-shift-g": null,
+      "ctrl-e": null,
+      "ctrl-alt-b": null,
+      "ctrl-shift-d": null,
+      "ctrl-b": null,
+      "ctrl-j": null,
+      "ctrl-w": null
+    }
+  },
+  {
+    "bindings": {
+      "alt-x": "workspace::ToggleRightDock",
+      // Toggle Zoom
+      "alt-d": "workspace::ToggleZoom",
+
+      // Terminal
+      "shift-f1": "terminal_panel::ToggleFocus",
+      "alt-shift-1": "workspace::OpenInTerminal",
+
+      // Reload
+      "ctrl-alt-shift-p": "workspace::Reload",
+      "ctrl-alt-shift-e": "editor::RestartLanguageServer",
+      "ctrl-alt-shift-x": "zed::ReloadExtensions",
+
+      // Moving important
+      // More important
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-right": "workspace::ActivatePaneRight",
+      "alt-,": "workspace::SwapPaneLeft",
+      "alt-.": "workspace::SwapPaneRight",
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "alt-home": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "up"
+        }
+      ],
+      "alt-end": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "down"
+        }
+      ],
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+      "ctrl-shift-,": "pane::SplitAndMoveLeft",
+      "ctrl-shift-.": "pane::SplitAndMoveRight",
+
+      "ctrl-shift-o": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ],
+      "ctrl-'": "terminal_panel::Toggle",
+      "ctrl-alt-o": "workspace::Open",
+      "ctrl-k l": "workspace::AddFolderToProject",
+      "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
+      "ctrl-k ctrl-o": "editor::ToggleFold",
+      "ctrl-q": "editor::ToggleBreakpoint",
+
+      // Don't missclick
+      "f4": null,
+      "ctrl-o": null,
+      "ctrl-shift-w": null
+
+      /*
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPane",
+        { "destination": 0, "focus": true, "clone": false }
+      ],
+      */
+      /*
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPane",
+        { "destination": 1, "focus": true, "clone": false }
+      ],
+      */
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-e": "outline::Toggle"
+    }
+  },
+  {},
+  {
+    "context": "!Terminal",
+    "bindings": {
+      "ctrl-shift-c": null
+    }
+  },
+  {
+    "context": "SettingsWindow",
+    "bindings": {
+      "ctrl-1": null,
+      "ctrl-2": null,
+      "ctrl-3": null,
+      "ctrl-4": null,
+      "ctrl-5": null
     }
   },
   {
@@ -57,124 +211,6 @@
     "bindings": {
       "ctrl-shift-e": null,
       "ctrl-shift-h": null
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "alt-w": "git_panel::ToggleFocus",
-      "alt-e": "outline_panel::ToggleFocus",
-      "alt-q": "project_panel::ToggleFocus",
-      "alt-v": "workspace::ToggleLeftDock",
-      "ctrl-t": "project_symbols::Toggle",
-
-      "ctrl-alt-shift-o": [
-        "projects::OpenRemote",
-        {
-          "from_existing_connection": false,
-          "create_new_window": false
-        }
-      ],
-
-      "ctrl-r": [
-        "task::Rerun",
-        {
-          "reevaluate_context": false
-        }
-      ],
-
-      "alt-shift-t": null,
-      "alt-shift-r": null,
-      "ctrl-shift-r": null,
-      "alt-t": null,
-      "ctrl-shift-e": null,
-      "ctrl-shift-g": null,
-      "ctrl-e": null,
-      "ctrl-w": null
-    }
-  },
-  {
-    "bindings": {
-      "alt-b": "workspace::ToggleRightDock",
-      // Toggle Zoom
-      "alt-d": "workspace::ToggleZoom",
-
-      // Terminal
-      "shift-f1": "terminal_panel::ToggleFocus",
-      "alt-shift-1": "workspace::OpenInTerminal",
-
-      // Reload
-      "ctrl-alt-shift-p": "workspace::Reload",
-      "ctrl-alt-shift-e": "editor::RestartLanguageServer",
-      "ctrl-alt-shift-x": "zed::ReloadExtensions",
-
-      // Moving important
-      // More important
-      "alt-left": "workspace::ActivatePaneLeft",
-      "alt-right": "workspace::ActivatePaneRight",
-      "alt-,": "workspace::SwapPaneLeft",
-      "alt-.": "workspace::SwapPaneRight",
-      "ctrl-alt-left": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
-      ],
-      "alt-[": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" }
-      ],
-      "alt-]": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" }
-      ],
-      "ctrl-alt-right": [
-        "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
-      ],
-      "ctrl-shift-,": "pane::SplitAndMoveLeft",
-      "ctrl-shift-.": "pane::SplitAndMoveRight",
-
-      "ctrl-shift-o": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": false
-        }
-      ],
-      "ctrl-'": "terminal_panel::Toggle",
-      "ctrl-alt-o": "workspace::Open",
-      "ctrl-k l": "workspace::AddFolderToProject",
-      "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
-      "ctrl-k ctrl-o": "editor::ToggleFold",
-
-      // Don't missclick
-      "ctrl-o": null,
-      "ctrl-q": null,
-      "ctrl-shift-w": null
-
-      /*
-      "ctrl-alt-left": [
-        "workspace::MoveItemToPane",
-        { "destination": 0, "focus": true, "clone": false }
-      ],
-      */
-      /*
-      "ctrl-alt-right": [
-        "workspace::MoveItemToPane",
-        { "destination": 1, "focus": true, "clone": false }
-      ],
-      */
-    }
-  },
-  {
-    "context": "(Editor && mode == full)",
-    "bindings": {
-      "ctrl-e": "outline::Toggle"
-    }
-  },
-  {},
-  {
-    "context": "!Terminal",
-    "bindings": {
-      "ctrl-shift-c": null
     }
   }
 ]
