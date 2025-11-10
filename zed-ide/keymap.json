@@ -6,12 +6,9 @@
       "ctrl-/": "editor::ToggleComments",
       "ctrl-x": "editor::Redo",
 
-      "ctrl-shift-i": "outline_panel::ToggleActiveEditorPin",
       "ctrl-\\": "pane::SplitVertical",
       "alt-\\": "pane::SplitHorizontal",
-
       "alt-s": "go_to_line::Toggle",
-      "ctrl-b": "outline_panel::FoldDirectory",
 
       "ctrl-3": "editor::GoToDefinition",
       "ctrl-2": "file_finder::Toggle",
@@ -22,18 +19,21 @@
 
       "ctrl-shift-f": "editor::Format",
       "ctrl-1": "editor::ToggleCodeActions",
-
-      "alt-shift-3": "editor::FindAllReferences",
-      "ctrl-alt-q": "editor::EditLogBreakpoint",
+      "ctrl-shift-q": "editor::EditLogBreakpoint",
       "ctrl-4": "editor::SelectAllMatches",
-      "ctrl-alt-3": "editor::GoToDefinitionSplit",
+      "ctrl-shift-f12": "editor::GoToDefinitionSplit",
+      "ctrl-shift-3": "editor::FindAllReferences",
+      "shift-f12": "editor::OpenContextMenu",
 
+      "f9": null,
+      "shift-f9": null,
+      "ctrl-shift-f10": null,
+      "shift-f10": null,
       "f12": null,
       "ctrl-alt-f12": null,
       "alt-shift-f12": null,
       "ctrl-f12": null,
       "alt-f12": null,
-      "shift-f12": null,
       "ctrl-f2": null,
       "ctrl-alt-b": null,
       "alt-shift-f": null,
@@ -55,7 +55,8 @@
       "alt-z": "workspace::ToggleLeftDock",
       "ctrl-t": "project_symbols::Toggle",
       "f5": "debugger::Start",
-      "shift-f5": "debugger::Rerun",
+      "alt-shift-3": "diagnostics::Deploy",
+      "ctrl-g": "git_panel::ToggleFocus",
 
       "ctrl-alt-shift-o": [
         "projects::OpenRemote",
@@ -72,6 +73,7 @@
         }
       ],
 
+      "f10": null,
       "alt-shift-t": null,
       "alt-shift-r": null,
       "ctrl-shift-r": null,
@@ -91,7 +93,6 @@
       "alt-x": "workspace::ToggleRightDock",
       // Toggle Zoom
       "alt-d": "workspace::ToggleZoom",
-
       // Terminal
       "shift-f1": "terminal_panel::ToggleFocus",
       "alt-shift-1": "workspace::OpenInTerminal",
@@ -127,8 +128,6 @@
         "workspace::MoveItemToPaneInDirection",
         { "direction": "right" }
       ],
-      "ctrl-shift-,": "pane::SplitAndMoveLeft",
-      "ctrl-shift-.": "pane::SplitAndMoveRight",
 
       "ctrl-shift-o": [
         "projects::OpenRecent",
@@ -136,18 +135,27 @@
           "create_new_window": false
         }
       ],
+      "f12": ["app_menu::OpenApplicationMenu", "Zed"],
+
+      "ctrl-shift-,": "pane::SplitAndMoveLeft",
+      "ctrl-shift-.": "pane::SplitAndMoveRight",
       "ctrl-'": "terminal_panel::Toggle",
       "ctrl-alt-o": "workspace::Open",
       "ctrl-k l": "workspace::AddFolderToProject",
       "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
       "ctrl-k ctrl-o": "editor::ToggleFold",
       "ctrl-q": "editor::ToggleBreakpoint",
+      "f6": "debugger::Rerun",
+      "f7": "debugger::Pause",
+      "f9": "debugger::StepInto",
+      "f10": "debugger::StepOut",
 
       // Don't missclick
       "f4": null,
       "ctrl-o": null,
-      "ctrl-shift-w": null
-
+      "ctrl-shift-w": null,
+      "ctrl-f11": null,
+      "shift-f11": null
       /*
       "ctrl-alt-left": [
         "workspace::MoveItemToPane",
@@ -165,7 +173,7 @@
   {
     "context": "(Editor && mode == full)",
     "bindings": {
-      "ctrl-e": "outline::Toggle"
+      "ctrl-e": null
     }
   },
   {},
@@ -190,13 +198,10 @@
     "bindings": {
       "ctrl-1": "project_search::ToggleFocus",
       "alt-a": "search::ToggleWholeWord",
-      "ctrl-shift-f": null
-    }
-  },
-  {
-    "context": "OutlinePanel",
-    "bindings": {
-      "ctrl-b": "outline_panel::FoldDirectory"
+      "ctrl-pageup": "pane::SwapItemLeft",
+      "ctrl-pagedown": "pane::SwapItemRight",
+      "ctrl-shift-f": null,
+      "ctrl-shift-pagedown": null
     }
   },
   {
@@ -211,6 +216,13 @@
     "bindings": {
       "ctrl-shift-e": null,
       "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "ApplicationMenu",
+    "bindings": {
+      "f12": "menu::Cancel",
+      "f10": null
     }
   }
 ]
