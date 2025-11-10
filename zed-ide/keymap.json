@@ -144,8 +144,6 @@
       "ctrl-k l": "workspace::AddFolderToProject",
       "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
       "ctrl-k ctrl-o": "editor::ToggleFold",
-      "ctrl-shift-r": "terminal::RerunTask",
-      "ctrl-alt-r": "terminal::RerunTask",
       "ctrl-q": "editor::ToggleBreakpoint",
       "f6": "debugger::Rerun",
       "f7": "debugger::Pause",
@@ -232,7 +230,8 @@
   {
     "context": "ProjectPanel",
     "bindings": {
-      "ctrl-alt-t": "project_panel::RevealInFileManager"
+      "ctrl-alt-t": "project_panel::RevealInFileManager",
+      "ctrl-alt-r": null
     }
   },
   {
