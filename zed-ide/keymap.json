@@ -24,7 +24,9 @@
       "ctrl-shift-f12": "editor::GoToDefinitionSplit",
       "ctrl-shift-3": "editor::FindAllReferences",
       "shift-f12": "editor::OpenContextMenu",
+      "ctrl-k k": "editor::Hover",
 
+      "ctrl-k ctrl-i": null,
       "f9": null,
       "shift-f9": null,
       "ctrl-shift-f10": null,
@@ -141,7 +143,7 @@
       "ctrl-shift-.": "pane::SplitAndMoveRight",
       "ctrl-'": "terminal_panel::Toggle",
       "ctrl-alt-o": "workspace::Open",
-      "ctrl-k l": "workspace::AddFolderToProject",
+      "ctrl-k ctrl-i": "workspace::AddFolderToProject",
       "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
       "ctrl-k ctrl-o": "editor::ToggleFold",
       "ctrl-q": "editor::ToggleBreakpoint",
@@ -149,7 +151,6 @@
       "f7": "debugger::Pause",
       "f9": "debugger::StepInto",
       "f10": "debugger::StepOut",
-
 
       // Don't missclick
       "f4": null,
