@@ -3,7 +3,6 @@
     "context": "Editor",
     "bindings": {
       "ctrl-d": "editor::DeleteLine",
-      "ctrl-/": "editor::ToggleComments",
       "ctrl-x": "editor::Redo",
 
       "ctrl-\\": "pane::SplitVertical",
@@ -246,6 +245,23 @@
     "bindings": {
       "ctrl-shift-r": null,
       "ctrl-alt-r": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-;": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-/": "editor::ToggleLineNumbers"
     }
   }
 ]
