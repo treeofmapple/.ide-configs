@@ -1,0 +1,93 @@
+{
+  "terminal": {
+    "shell": {
+      "program": "powershell"
+    }
+  },
+  "base_keymap": "VSCode",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
+  "project_panel": {
+    "hide_hidden": false,
+    "dock": "right",
+    "auto_fold_dirs": true,
+    "folder_icons": true,
+    "indent_guides": {
+      "show": "always"
+    }
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Cappone (eclipse)"
+  },
+  "disable_ai": true,
+  "format_on_save": "off",
+
+  "lsp": {
+    "jdtls": {
+      "initialization_options": {
+        "settings": {
+          "java": {
+            "errors": {
+              "incompleteClasspath": {
+                "severity": "warning"
+              }
+            },
+            "configuration": {
+              "updateBuildConfiguration": "interactive"
+            },
+            "import": {
+              "maven": {
+                "enabled": true
+              },
+              "exclusions": [
+                "**/node_modules/**",
+                "**/.metadata/**",
+                "**/archetype-resources/**",
+                "**/META-INF/maven/**",
+                "/**/test/**"
+              ]
+            },
+            "jdt": {
+              "ls": {
+                "lombokSupport": {
+                  "enabled": true
+                }
+              }
+            },
+            "referencesCodeLens": {
+              "enabled": true
+            },
+            "implementationsCodeLens": {
+              "enabled": true
+            },
+            "format": {
+              "enabled": true
+            },
+            "completion": {
+              "favoriteStaticMembers": [
+                "org.junit.Assert.*",
+                "org.junit.Assume.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "org.junit.jupiter.api.Assumptions.*",
+                "org.junit.jupiter.api.DynamicContainer.*",
+                "org.junit.jupiter.api.DynamicTest.*"
+              ],
+              "importOrder": ["java", "javax", "com", "org"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

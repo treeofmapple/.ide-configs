@@ -1,0 +1,45 @@
+[
+  {
+    "label": "Git: Show Status",
+    "command": "git",
+    "args": ["status"],
+    "use_new_terminal": true
+  },
+  {
+    "label": "Run Spring Boot App",
+    "command": "./mvnw",
+    "args": ["spring-boot:run"],
+    "use_new_terminal": true,
+    "context": {
+      "file_glob": "pom.xml"
+    }
+  },
+  {
+    "label": "Cargo: Run (Debug)",
+    "command": "cargo",
+    "args": ["run"],
+    "description": "#rust #cargo",
+    "use_new_terminal": true,
+    "context": {
+      "language": "Rust"
+    }
+  },
+  {
+    "label": "Cargo: Run (Release)",
+    "command": "cargo",
+    "args": ["run", "--release"],
+    "use_new_terminal": true,
+    "context": {
+      "language": "Rust"
+    }
+  },
+  {
+    "label": "Java: Run Current File",
+    "command": "java",
+    "args": ["$ZED_FILE"],
+    "use_new_terminal": true,
+    "context": {
+      "language": "Java"
+    }
+  }
+]

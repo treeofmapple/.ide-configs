@@ -1,0 +1,18 @@
+invocations: rgb(80, 243, 39); 
+interfaces: rgb(204,0,102); 
+keyword return: rgb(124, 60, 204); 
+keyworks excluding 'return': rgb(124, 60, 204); 
+local variables declaration: rgb(255,255,136); 
+local variables: rgb(255,255,136); 
+method declaration: rgb(170,0,0); 
+method: rgb(160,14,14); 
+numbers: rgb(104, 151, 187); 
+operators: rgb(230,230,250); 
+paramether variables: rgb(0,132,240);  
+restricted identifiers: rgb(162,157,6); 
+static fields: rgb(74,174,255);  
+static final fields: rgb(255,26,209);  
+static method invocation: rgb(146, 236, 55); 
+string: rgb(0,191,96); 
+type arguments: rgb(255,128,0); 
+type variables: rgb(191,164,164);

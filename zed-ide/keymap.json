@@ -1,0 +1,348 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-d": "editor::DeleteLine",
+      "ctrl-/": "editor::ToggleComments",
+      "ctrl-x": "editor::Redo",
+
+      "ctrl-\\": "pane::SplitVertical",
+      "alt-\\": "pane::SplitHorizontal",
+      "alt-s": "go_to_line::Toggle",
+
+      "ctrl-3": "editor::GoToDefinition",
+      "ctrl-shift-h": "file_finder::Toggle",
+
+      "alt-c": "editor::SelectAllMatches",
+      "alt-1": "editor::AddSelectionAbove",
+      "alt-2": "editor::AddSelectionBelow",
+      "ctrl-1": "editor::ToggleCodeActions",
+      "ctrl-shift-q": "editor::EditLogBreakpoint",
+      "ctrl-4": "editor::SelectAllMatches",
+      "ctrl-shift-f12": "editor::GoToDefinitionSplit",
+      "ctrl-shift-3": "editor::FindAllReferences",
+      "shift-f12": "editor::OpenContextMenu",
+      "ctrl-k k": "editor::Hover",
+
+      "ctrl-k ctrl-i": null,
+      "f9": null,
+      "shift-f9": null,
+      "ctrl-shift-f10": null,
+      "shift-f10": null,
+      "f12": null,
+      "ctrl-alt-f12": null,
+      "alt-shift-f12": null,
+      "ctrl-f12": null,
+      "alt-f12": null,
+      "ctrl-f2": null,
+      "ctrl-alt-b": null,
+      "alt-shift-f": null,
+      "ctrl-shift-e": null,
+      "ctrl-[": null,
+      "ctrl-]": null,
+      "ctrl-.": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-v": "workspace::ToggleBottomDock",
+      "alt-shift-2": "debug_panel::ToggleFocus",
+
+      "alt-w": "git_panel::ToggleFocus",
+      "alt-e": "outline_panel::ToggleFocus",
+      "alt-q": "project_panel::ToggleFocus",
+      "alt-z": "workspace::ToggleLeftDock",
+      "ctrl-t": "project_symbols::Toggle",
+      "f5": "debugger::Start",
+      "alt-shift-3": "diagnostics::Deploy",
+      "ctrl-g": "git_panel::ToggleFocus",
+
+      "ctrl-alt-shift-o": [
+        "projects::OpenRemote",
+        {
+          "from_existing_connection": false,
+          "create_new_window": false
+        }
+      ],
+
+      "f10": null,
+      "alt-shift-t": null,
+      "alt-shift-r": null,
+      "ctrl-shift-r": null,
+      "alt-t": null,
+      "ctrl-shift-e": null,
+      "ctrl-shift-g": null,
+      "ctrl-e": null,
+      "ctrl-alt-b": null,
+      "ctrl-shift-d": null,
+      "ctrl-b": null,
+      "ctrl-j": null,
+      "ctrl-w": null
+    }
+  },
+  {
+    "bindings": {
+      "alt-x": "workspace::ToggleRightDock",
+      // Toggle Zoom
+      "alt-d": "workspace::ToggleZoom",
+      // Terminal
+      "shift-f1": "terminal_panel::ToggleFocus",
+      "alt-shift-1": "workspace::OpenInTerminal",
+
+      // Reload
+      "ctrl-alt-shift-p": "workspace::Reload",
+      "ctrl-alt-shift-e": "editor::RestartLanguageServer",
+      "ctrl-alt-shift-x": "zed::ReloadExtensions",
+
+      // Moving important
+      // More important
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-end": "workspace::ActivatePaneDown",
+      "alt-home": "workspace::ActivatePaneUp",
+      "alt-right": "workspace::ActivatePaneRight",
+      "alt-,": "workspace::SwapPaneLeft",
+      "alt-.": "workspace::SwapPaneRight",
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" }
+      ],
+      "ctrl-alt-home": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "up"
+        }
+      ],
+      "ctrl-alt-end": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "down"
+        }
+      ],
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" }
+      ],
+
+      "ctrl-alt-i": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ],
+      "f12": ["app_menu::OpenApplicationMenu", "Zed"],
+
+      "ctrl-shift-,": "pane::SplitAndMoveLeft",
+      "ctrl-shift-.": "pane::SplitAndMoveRight",
+      "ctrl-'": "terminal_panel::Toggle",
+      "ctrl-alt-o": "workspace::Open",
+      "ctrl-k ctrl-i": "workspace::AddFolderToProject",
+      "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
+      "ctrl-k ctrl-o": "editor::ToggleFold",
+      "ctrl-q": "editor::ToggleBreakpoint",
+      "f6": "debugger::Rerun",
+      "f7": "debugger::Pause",
+      "f9": "debugger::StepInto",
+      "f10": "debugger::StepOut",
+
+      // Don't missclick
+      "f4": null,
+      "ctrl-o": null,
+      "ctrl-shift-w": null,
+      "ctrl-f11": null,
+      "shift-f11": null
+      /*
+      "ctrl-alt-left": [
+        "workspace::MoveItemToPane",
+        { "destination": 0, "focus": true, "clone": false }
+      ],
+      */
+      /*
+      "ctrl-alt-right": [
+        "workspace::MoveItemToPane",
+        { "destination": 1, "focus": true, "clone": false }
+      ],
+      */
+    }
+  },
+  {},
+  {
+    "context": "!Terminal",
+    "bindings": {
+      "ctrl-shift-c": null
+    }
+  },
+  {
+    "context": "SettingsWindow",
+    "bindings": {
+      "ctrl-1": null,
+      "ctrl-2": null,
+      "ctrl-3": null,
+      "ctrl-4": null,
+      "ctrl-5": null
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-1": "project_search::ToggleFocus",
+      "alt-a": "search::ToggleWholeWord",
+      "ctrl-pageup": "pane::SwapItemLeft",
+      "ctrl-pagedown": "pane::SwapItemRight",
+      "ctrl-shift-f": null,
+      "ctrl-shift-pagedown": null
+    }
+  },
+  {
+    "context": "RunModal",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-shift-e": null,
+      "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "ApplicationMenu",
+    "bindings": {
+      "f12": "menu::Cancel",
+      "f10": null
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-e": "outline::Toggle",
+      "ctrl-g": null
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-alt-t": "project_panel::RevealInFileManager",
+      "ctrl-alt-r": null
+    }
+  },
+  {
+    "context": "(OutlinePanel && not_editing)",
+    "bindings": {
+      "ctrl-alt-r": null
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-shift-r": null,
+      "ctrl-alt-r": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-y": null
+    }
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-2": "search::ToggleReplace"
+    }
+  },
+  {
+    "context": "ProjectSearchView",
+    "bindings": {
+      "ctrl-2": "search::ToggleReplace"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "ProjectSearchView",
+    "bindings": {
+      "ctrl-shift-h": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-2": [
+        "pane::DeploySearch",
+        {
+          "replace_enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-u": null
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-shift-o": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-o": "editor::OrganizeImports"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-shift-o": null
+    }
+  },
+  {
+    "context": "Editor",
+      "bindings": {
+      "ctrl-shift-f": "editor::FormatSelections"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-'": "pane::TogglePinTab"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-r": [
+        "task::Rerun",
+        {
+          "reevaluate_context": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-r": [
+        "task::Spawn",
+        {
+          "reveal_target": "center"
+        }
+      ]
+    }
+  }
+]
