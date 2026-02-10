@@ -1,78 +1,204 @@
 {
-  "terminal": {
-    "shell": {
-      "program": "powershell"
-    }
-  },
+  //#"terminal": {
+  //},
   "base_keymap": "VSCode",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Cappone (eclipse)",
+  },
   "icon_theme": {
     "mode": "dark",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Material Icon Theme",
   },
+
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+
+  "format_on_save": "off",
+
   "project_panel": {
     "hide_hidden": false,
     "dock": "right",
     "auto_fold_dirs": true,
     "folder_icons": true,
     "indent_guides": {
-      "show": "always"
-    }
+      "show": "always",
+    },
   },
+
+  "disable_ai": true,
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "Cappone (eclipse)"
+
+  "file_types": {
+    "Java": ["java"],
+    "HTML": ["html"],
   },
-  "disable_ai": true,
-  "format_on_save": "off",
+
+  "languages": {
+    "Rust": {
+      "format_on_save": "off",
+      "formatter": {
+        "external": {
+          "command": "rustfmt",
+          "arguments": ["--emit=stdout", "--edition=2021"],
+        },
+      },
+    },
+    "SCSS": {
+      "language_servers": ["scss-lsp", "tailwindcss-language-server"],
+    },
+    "Angular": {
+      "language_servers": [
+        "tailwindcss-language-server",
+        "vscode-html-language-server",
+        "emmet-language-server",
+        "angular",
+      ],
+      "completions": {
+        "lsp": true,
+      },
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
+    },
+    "JavaScript": {
+      "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
+    },
+    "TypeScript": {
+      "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
+    },
+    "TSX": {
+      "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
+    },
+  },
 
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "angular": {
+      "initialization_options": {
+        "angularCompilerOptions": {
+          "strictTemplates": true,
+        },
+      },
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cva", "cx", "clsx"],
+        "tailwindCSS": {
+          "includeLanguages": {
+            "angular": "html",
+            "html": "html",
+            "javascript": "javascript",
+            "javascriptreact": "javascriptreact",
+            "typescript": "typescript",
+            "typescriptreact": "typescriptreact",
+          },
+          "experimental": {
+            "classRegex": [
+              "\\[ngClass\\]=\"([^\"]*)\"",
+              "class=\"([^\"]*)\"",
+              "className=\"([^\"]*)\"",
+            ],
+          },
+          "validate": true,
+          "lint": {
+            "cssConflict": "warning",
+            "invalidApply": "error",
+            "invalidScreen": "error",
+            "invalidVariant": "error",
+            "recommendedVariantOrder": "warning",
+          },
+        },
+      },
+    },
     "jdtls": {
       "initialization_options": {
         "settings": {
           "java": {
+            "initialization_options": {
+              "settings": {
+                "java": {
+                  "project": {
+                    "sourcePaths": ["src"],
+                  },
+                },
+              },
+            },
             "errors": {
               "incompleteClasspath": {
-                "severity": "warning"
-              }
+                "severity": "warning",
+              },
             },
             "configuration": {
-              "updateBuildConfiguration": "interactive"
+              "updateBuildConfiguration": "interactive",
             },
             "import": {
               "maven": {
-                "enabled": true
+                "enabled": true,
               },
               "exclusions": [
                 "**/node_modules/**",
                 "**/.metadata/**",
                 "**/archetype-resources/**",
                 "**/META-INF/maven/**",
-                "/**/test/**"
-              ]
+                "/**/test/**",
+              ],
             },
             "jdt": {
               "ls": {
                 "lombokSupport": {
-                  "enabled": true
-                }
-              }
+                  "enabled": true,
+                },
+              },
             },
             "referencesCodeLens": {
-              "enabled": true
+              "enabled": true,
             },
             "implementationsCodeLens": {
-              "enabled": true
+              "enabled": true,
             },
             "format": {
-              "enabled": true
+              "enabled": true,
             },
             "completion": {
               "favoriteStaticMembers": [
@@ -81,13 +207,13 @@
                 "org.junit.jupiter.api.Assertions.*",
                 "org.junit.jupiter.api.Assumptions.*",
                 "org.junit.jupiter.api.DynamicContainer.*",
-                "org.junit.jupiter.api.DynamicTest.*"
+                "org.junit.jupiter.api.DynamicTest.*",
               ],
-              "importOrder": ["java", "javax", "com", "org"]
-            }
-          }
-        }
-      }
-    }
-  }
+              "importOrder": ["java", "javax", "com", "org"],
+            },
+          },
+        },
+      },
+    },
+  },
 }

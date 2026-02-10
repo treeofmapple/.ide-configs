@@ -1,37 +1,23 @@
 [
   {
-    "label": "Git: Show Status",
-    "command": "git",
-    "args": ["status"],
-    "use_new_terminal": true
+    "label": "Start lazygit",
+    "command": "lazygit -p $ZED_WORKTREE_ROOT",
   },
   {
-    "label": "Run Spring Boot App",
-    "command": "./mvnw",
-    "args": ["spring-boot:run"],
-    "use_new_terminal": true,
-    "context": {
-      "file_glob": "pom.xml"
-    }
+    "label": "Echo: current file's path",
+    "command": "echo $ZED_FILE",
+    "tags": ["rust-test"],
   },
   {
     "label": "Cargo: Run (Debug)",
     "command": "cargo",
     "args": ["run"],
-    "description": "#rust #cargo",
     "use_new_terminal": true,
-    "context": {
-      "language": "Rust"
-    }
   },
   {
     "label": "Cargo: Run (Release)",
     "command": "cargo",
     "args": ["run", "--release"],
-    "use_new_terminal": true,
-    "context": {
-      "language": "Rust"
-    }
   },
   {
     "label": "Java: Run Current File",
@@ -39,7 +25,7 @@
     "args": ["$ZED_FILE"],
     "use_new_terminal": true,
     "context": {
-      "language": "Java"
-    }
-  }
+      "language": "Java",
+    },
+  },
 ]

@@ -12,10 +12,6 @@
 
       "ctrl-3": "editor::GoToDefinition",
       "ctrl-shift-h": "file_finder::Toggle",
-
-      "alt-c": "editor::SelectAllMatches",
-      "alt-1": "editor::AddSelectionAbove",
-      "alt-2": "editor::AddSelectionBelow",
       "ctrl-1": "editor::ToggleCodeActions",
       "ctrl-shift-q": "editor::EditLogBreakpoint",
       "ctrl-4": "editor::SelectAllMatches",
@@ -40,14 +36,13 @@
       "ctrl-shift-e": null,
       "ctrl-[": null,
       "ctrl-]": null,
-      "ctrl-.": null
-    }
+      "ctrl-.": null,
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "alt-v": "workspace::ToggleBottomDock",
-      "alt-shift-2": "debug_panel::ToggleFocus",
+      "alt-@": "debug_panel::ToggleFocus",
 
       "alt-w": "git_panel::ToggleFocus",
       "alt-e": "outline_panel::ToggleFocus",
@@ -55,15 +50,14 @@
       "alt-z": "workspace::ToggleLeftDock",
       "ctrl-t": "project_symbols::Toggle",
       "f5": "debugger::Start",
-      "alt-shift-3": "diagnostics::Deploy",
       "ctrl-g": "git_panel::ToggleFocus",
 
       "ctrl-alt-shift-o": [
         "projects::OpenRemote",
         {
           "from_existing_connection": false,
-          "create_new_window": false
-        }
+          "create_new_window": false,
+        },
       ],
 
       "f10": null,
@@ -78,8 +72,7 @@
       "ctrl-shift-d": null,
       "ctrl-b": null,
       "ctrl-j": null,
-      "ctrl-w": null
-    }
+    },
   },
   {
     "bindings": {
@@ -88,7 +81,7 @@
       "alt-d": "workspace::ToggleZoom",
       // Terminal
       "shift-f1": "terminal_panel::ToggleFocus",
-      "alt-shift-1": "workspace::OpenInTerminal",
+      "alt-!": "workspace::OpenInTerminal",
 
       // Reload
       "ctrl-alt-shift-p": "workspace::Reload",
@@ -98,48 +91,49 @@
       // Moving important
       // More important
       "alt-left": "workspace::ActivatePaneLeft",
-      "alt-end": "workspace::ActivatePaneDown",
-      "alt-home": "workspace::ActivatePaneUp",
       "alt-right": "workspace::ActivatePaneRight",
+      "alt-home": "workspace::ActivatePaneLeft",
+      "alt-pageUp": "workspace::ActivatePaneRight",
+      "alt-end": "workspace::ActivatePaneUp",
+      "alt-pageDown": "workspace::ActivatePaneDown",
       "alt-,": "workspace::SwapPaneLeft",
       "alt-.": "workspace::SwapPaneRight",
       "ctrl-alt-left": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
-      ],
-      "ctrl-alt-home": [
-        "workspace::MoveItemToPaneInDirection",
-        {
-          "direction": "up"
-        }
+        { "direction": "left" },
       ],
       "ctrl-alt-end": [
         "workspace::MoveItemToPaneInDirection",
         {
-          "direction": "down"
-        }
+          "direction": "up",
+        },
+      ],
+      "ctrl-alt-pagedown": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "down",
+        },
       ],
       "ctrl-alt-right": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
+        { "direction": "right" },
       ],
 
       "ctrl-alt-i": [
         "projects::OpenRecent",
         {
-          "create_new_window": false
-        }
+          "create_new_window": false,
+        },
       ],
       "f12": ["app_menu::OpenApplicationMenu", "Zed"],
 
       "ctrl-shift-,": "pane::SplitAndMoveLeft",
       "ctrl-shift-.": "pane::SplitAndMoveRight",
-      "ctrl-'": "terminal_panel::Toggle",
       "ctrl-alt-o": "workspace::Open",
       "ctrl-k ctrl-i": "workspace::AddFolderToProject",
       "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
       "ctrl-k ctrl-o": "editor::ToggleFold",
-      "ctrl-q": "editor::ToggleBreakpoint",
+      "ctrl-alt-q": "editor::ToggleBreakpoint",
       "f6": "debugger::Rerun",
       "f7": "debugger::Pause",
       "f9": "debugger::StepInto",
@@ -150,7 +144,7 @@
       "ctrl-o": null,
       "ctrl-shift-w": null,
       "ctrl-f11": null,
-      "shift-f11": null
+      "shift-f11": null,
       /*
       "ctrl-alt-left": [
         "workspace::MoveItemToPane",
@@ -163,14 +157,14 @@
         { "destination": 1, "focus": true, "clone": false }
       ],
       */
-    }
+    },
   },
   {},
   {
     "context": "!Terminal",
     "bindings": {
-      "ctrl-shift-c": null
-    }
+      "ctrl-shift-c": null,
+    },
   },
   {
     "context": "SettingsWindow",
@@ -179,8 +173,8 @@
       "ctrl-2": null,
       "ctrl-3": null,
       "ctrl-4": null,
-      "ctrl-5": null
-    }
+      "ctrl-5": null,
+    },
   },
   {
     "context": "Pane",
@@ -190,41 +184,272 @@
       "ctrl-pageup": "pane::SwapItemLeft",
       "ctrl-pagedown": "pane::SwapItemRight",
       "ctrl-shift-f": null,
-      "ctrl-shift-pagedown": null
-    }
+      "ctrl-shift-pagedown": null,
+    },
   },
   {
     "context": "RunModal",
     "bindings": {
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem"
-    }
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+    },
   },
   {
     "context": "AgentPanel",
     "bindings": {
       "ctrl-shift-e": null,
-      "ctrl-shift-h": null
-    }
+      "ctrl-shift-h": null,
+    },
   },
   {
     "context": "ApplicationMenu",
     "bindings": {
       "f12": "menu::Cancel",
-      "f10": null
-    }
+      "f10": null,
+    },
   },
   {
     "context": "(Editor && mode == full)",
     "bindings": {
       "ctrl-e": "outline::Toggle",
-      "ctrl-g": null
+      "ctrl-g": null,
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-shift-r": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-y": null,
+    },
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-2": "search::ToggleReplace",
+    },
+  },
+  {
+    "context": "ProjectSearchView",
+    "bindings": {
+      "ctrl-2": "search::ToggleReplace",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-h": null,
+    },
+  },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-shift-h": null,
+    },
+  },
+  {
+    "context": "ProjectSearchView",
+    "bindings": {
+      "ctrl-shift-h": null,
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-2": [
+        "pane::DeploySearch",
+        {
+          "replace_enabled": true,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-u": null,
+    },
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-shift-o": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-o": "editor::OrganizeImports",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-shift-o": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-f": "editor::FormatSelections",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-alt-'": "pane::TogglePinTab",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-shift-r": [
+        "task::Rerun",
+        {
+          "reevaluate_context": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-r": [
+        "task::Spawn",
+        {
+          "reveal_target": "center",
+        },
+      ],
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-n": "workspace::NewWindow",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-shift-n": "project_panel::NewDirectory",
+    },
+  },
+  {
+    "bindings": {
+      "alt-v": "diagnostics::Deploy",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-alt-r": "project_panel::RevealInFileManager",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-n": null,
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-n": "project_panel::NewFile",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-n": "workspace::NewFile",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "new": null,
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "new": null,
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-,": null,
+    },
+  },
+  {
+    "context": "SettingsWindow",
+    "bindings": {
+      "ctrl-,": null,
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-alt-;": "zed::OpenSettingsFile"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-degree": "zed::OpenKeymap"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-~": null
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-n": "workspace::NewTerminal"
+    }
+  },
+  {
+    "context": "KeymapEditor",
+      "bindings": {
+      "delete": "keymap_editor::DeleteBinding"
+    }
+  },
+  {
+    "context": "!ContextEditor > (Editor && mode == full)",
+    "bindings": {
+      "alt-\"": "editor::ToggleInlayHints"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-alt-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-w": "workspace::CloseActiveDock",
+      "ctrl-alt-r": null,
+      "ctrl-`": null
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-alt-r": null
     }
   },
   {
     "context": "ProjectPanel",
     "bindings": {
-      "ctrl-alt-t": "project_panel::RevealInFileManager",
       "ctrl-alt-r": null
     }
   },
@@ -235,114 +460,23 @@
     }
   },
   {
-    "context": "Terminal",
     "bindings": {
-      "ctrl-shift-r": null,
-      "ctrl-alt-r": null
+      "ctrl-alt-up": "editor::AddSelectionAbove",
+      "ctrl-alt-down": "editor::AddSelectionBelow",
+      "alt-c": "workspace::ToggleBottomDock",
+      "ctrl-'": "terminal_panel::Toggle",
+      "ctrl-q": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-\"": "editor::CollapseAllDiffHunks"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-y": null
-    }
-  },
-  {
-    "context": "ProjectSearchBar",
-    "bindings": {
-      "ctrl-2": "search::ToggleReplace"
-    }
-  },
-  {
-    "context": "ProjectSearchView",
-    "bindings": {
-      "ctrl-2": "search::ToggleReplace"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-shift-h": null
-    }
-  },
-  {
-    "context": "ProjectSearchBar",
-    "bindings": {
-      "ctrl-shift-h": null
-    }
-  },
-  {
-    "context": "ProjectSearchView",
-    "bindings": {
-      "ctrl-shift-h": null
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-2": [
-        "pane::DeploySearch",
-        {
-          "replace_enabled": true
-        }
-      ]
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-shift-u": null
-    }
-  },
-  {
-    "context": "(Editor && mode == full)",
-    "bindings": {
-      "ctrl-shift-o": null
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-shift-o": "editor::OrganizeImports"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "alt-shift-o": null
-    }
-  },
-  {
-    "context": "Editor",
-      "bindings": {
-      "ctrl-shift-f": "editor::FormatSelections"
-    }
-  },
-  {
-    "context": "Pane",
-    "bindings": {
-      "ctrl-shift-'": "pane::TogglePinTab"
-    }
-  },
-  {
-    "bindings": {
-      "ctrl-shift-r": [
-        "task::Rerun",
-        {
-          "reevaluate_context": false
-        }
-      ]
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-r": [
-        "task::Spawn",
-        {
-          "reveal_target": "center"
-        }
-      ]
+      "ctrl-\"": null
     }
   }
 ]
