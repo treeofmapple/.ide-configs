@@ -1,0 +1,7 @@
+package ucsal.oferta.repository;
+
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+public class DisciplinaRepositoryTest extends RepositoryTest {
+
+}

@@ -1,0 +1,27 @@
+package ucsal.oferta.professor.model.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import ucsal.oferta.professor.dto.ProfessorDTO;
+
+@Getter
+@Setter
+@Entity
+public class Professor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private String email;
+
+    public Professor() {}
+
+    public Professor(ProfessorDTO dto) {
+        this.id = dto.id();
+        this.nome = dto.nome();
+        this.email = dto.email();
+    }
+}

@@ -1,0 +1,9 @@
+package ucsal.oferta.repository;
+
+@DataJpaTest
+@Import(PostgresqlContainer.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class ProfessorRepositoryTest {
+
+}

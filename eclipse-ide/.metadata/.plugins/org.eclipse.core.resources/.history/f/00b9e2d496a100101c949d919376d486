@@ -1,0 +1,44 @@
+package ucsal.oferta.infraestrutura.model.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ucsal.oferta.infraestrutura.dto.SolicitacaoReservaDTO;
+
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "solicitacao_reserva")
+public class SolicitacaoReserva {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String idSolicitacao;
+
+    private String idEspaco;
+    
+    private String finalidade;
+
+    @Enumerated(EnumType.STRING)
+    @OneToMany
+    private StatusSolicitacao statusSolicitacao;
+
+    public SolicitacaoReserva(SolicitacaoReservaDTO dto) {
+        this.idSolicitacao = dto.idSolicitacao();
+        this.idEspaco = dto.idEspaco();
+        this.finalidade = dto.finalidade();
+        this.statusSolicitacao = dto.statusSolicitacao();
+    }
+
+}

@@ -1,0 +1,29 @@
+# Database password
+aws ssm put-parameter \
+  --name "/config/aws-lambda-sample/prod/DB_PASSWORD" \
+  --value "your-secure-production-db-password" \
+  --type "SecureString"
+
+# Admin user's password
+aws ssm put-parameter \
+  --name "/config/aws-lambda-sample/prod/ADMIN_PASSWORD" \
+  --value "a-very-strong-admin-password" \
+  --type "SecureString"
+  
+  # Database host (e.g., your RDS instance endpoint)
+aws ssm put-parameter \
+  --name "/config/aws-lambda-sample/prod/DB_HOST" \
+  --value "your-prod-rds-instance.random-chars.us-east-1.rds.amazonaws.com" \
+  --type "String"
+
+# Allowed origins for CORS
+aws ssm put-parameter \
+  --name "/config/aws-lambda-sample/prod/ALLOWED_ORIGINS" \
+  --value "https://your-production-frontend.com" \
+  --type "String"
+
+# Flyway baseline setting
+aws ssm put-parameter \
+  --name "/config/aws-lambda-sample/prod/FLYWAY_BASELINE-MIGRATION" \
+  --value "false" \
+  --type "String"

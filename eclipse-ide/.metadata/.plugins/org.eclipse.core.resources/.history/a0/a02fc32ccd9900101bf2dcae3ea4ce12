@@ -1,0 +1,65 @@
+package com.tom.service.datagen.service;
+
+import org.springframework.stereotype.Component;
+
+import com.tom.service.datagen.common.GenerateData;
+import com.tom.service.datagen.common.IdGenerator;
+import com.tom.service.datagen.dto.SchoolRequest;
+import com.tom.service.datagen.model.school.Alunos;
+import com.tom.service.datagen.model.school.Avaliacoes;
+import com.tom.service.datagen.model.school.Disciplinas;
+import com.tom.service.datagen.model.school.Matriculas;
+import com.tom.service.datagen.model.school.Notas;
+import com.tom.service.datagen.model.school.Turmas;
+
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+@Component
+
+public class SchoolUtils extends GenerateData {
+
+	private short alunos, disciplinas, turmas, matriculas;
+
+	public Alunos generateSingleAluno() {
+		Alunos alunos = new Alunos();
+		return null;
+	}
+
+	public Disciplinas generateSingleDisciplina() {
+		Disciplinas disciplinas = new Disciplinas();
+		return null;
+	}
+
+	public Turmas generateSingleTurma() {
+		Turmas turmas = new Turmas();
+		return null;
+	}
+
+	public Matriculas generateSingleMatricula() {
+		Matriculas matriculas = new Matriculas();
+		return null;
+	}
+
+	public Avaliacoes generateSingleAvaliacoes() {
+		Avaliacoes avaliacoes = new Avaliacoes();
+		return null;
+	}
+
+	public Notas generateSingleNotas() {
+		Notas notas = new Notas();
+		return null;
+	}
+
+	public void setVariables(SchoolRequest request) {
+		log.info("");
+		alunos = request.alunos();
+		disciplinas = request.disciplina();
+		turmas = request.turmas();
+		matriculas = request.matriculas();
+
+	}
+
+}

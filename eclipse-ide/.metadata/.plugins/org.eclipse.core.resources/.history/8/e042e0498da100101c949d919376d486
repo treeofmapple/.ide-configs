@@ -1,0 +1,12 @@
+package ucsal.oferta.repository;
+
+import org.junit.jupiter.api.BeforeAll;
+
+public class RepositoryTest {
+
+    @BeforeAll
+    static void startContainer() {
+        postgres.start();
+    }
+	
+}

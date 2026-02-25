@@ -1,0 +1,27 @@
+package ucsal.oferta;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
+
+import ucsal.oferta.professor.controller.ProfessorController;
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class OfertadisciplinaApplicationTests extends RepositoryTest {
+
+	@LocalServerPort
+	private int port;
+
+	private String baseURL;
+
+	@BeforeEach
+	public void setUp() {
+		baseURL = "http://localhost:" + port + "/professor/all";
+	}
+
+}

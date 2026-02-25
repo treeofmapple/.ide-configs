@@ -1,0 +1,43 @@
+package ucsal.oferta;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
+
+import ucsal.oferta.professor.controller.ProfessorController;
+
+@SuppressWarnings("unused")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class OfertadisciplinaApplicationTests {
+
+	@LocalServerPort
+	private int port;
+
+	private String baseURL;
+	
+	@Autowired
+	private ProfessorController professorController;
+
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@BeforeEach
+	public void setUp() {
+		baseURL = "http://localhost:" + port + "/professor/all";
+	}
+
+    @Test
+    void contextLoads() {
+        assertThat(professorController).isNotNull();
+    }
+	
+	@Test
+	public void testeGeral() {
+		System.out.println(baseURL);
+	}
+}

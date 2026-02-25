@@ -1,0 +1,13 @@
+package ucsal.oferta.repository;
+
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+private DisponibilidadeRepository disponibilidadeRepository;
+
+@Autowired
+private ProfessorRepository professorRepository;
+
+private Faker faker = new Faker();
+public class DisponibilidadeRepositoryTest extends RepositoryTest {
+
+}

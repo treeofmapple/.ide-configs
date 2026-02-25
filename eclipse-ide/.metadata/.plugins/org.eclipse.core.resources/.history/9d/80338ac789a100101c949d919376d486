@@ -1,0 +1,57 @@
+package ucsal.oferta.professor.model.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ucsal.oferta.academico.model.service.DisciplinaService;
+import ucsal.oferta.professor.dto.ProfessorDTO;
+import ucsal.oferta.professor.model.entity.Professor;
+import ucsal.oferta.professor.model.repository.ProfessorRepository;
+import ucsal.oferta.professor.model.validation.ProfessorValidation;
+
+@Service
+public class ProfessorService {
+
+    @Autowired
+    private ProfessorRepository professorRepository;
+
+    @Autowired
+    private ProfessorValidation professorValidation;
+
+    @Autowired
+    private DisciplinaService disciplinaService;
+
+    public List<Professor> create (List<ProfessorDTO> dtos) {
+        List<Professor> prof = new ArrayList<Professor>();
+        for(ProfessorDTO dto : dtos)
+            prof.add(create(dto));
+        return prof;
+    }
+
+    public Professor create(ProfessorDTO dto) {
+        return professorRepository.save(new Professor(dto));
+    }
+
+    public Professor update(ProfessorDTO dto) {
+        return (professorValidation.existeId(dto) ? create(dto) : null);
+    }
+
+    public Professor delete(ProfessorDTO dto) {
+        if(professorValidation.existeId(dto)) {
+            professorRepository.delete(new Professor(dto));
+            return find(dto);
+        }
+        return null;
+    }
+
+    public Professor find(ProfessorDTO dto) {
+        return (professorValidation.existeId(dto) ? professorRepository.findById(dto.id()).get() : null);
+    }
+
+    public List<Professor> findAll () {
+        return professorRepository.findAll();
+    }
+}

@@ -1,0 +1,14 @@
+package ucsal.oferta.professor.dto;
+
+import ucsal.oferta.academico.model.entity.Disciplina;
+import ucsal.oferta.professor.model.entity.Professor;
+
+import java.util.List;
+
+public record InteresseDisciplinaDTO(
+        Long id,
+        Professor professor,
+        List<Disciplina> disciplina,
+        Integer semestre
+) { }
+

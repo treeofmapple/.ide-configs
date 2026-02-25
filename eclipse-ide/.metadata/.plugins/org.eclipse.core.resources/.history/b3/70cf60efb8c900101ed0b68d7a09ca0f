@@ -1,0 +1,17 @@
+package com.tom.vehicle.normal.dto;
+
+import java.util.List;
+
+import paged_specification.VehicleResponse;
+
+public record PageVehicleResponse(
+		
+		List<VehicleResponse> content,
+		int page,
+		int size,
+		long totalPages,
+		long totalElements
+		
+		) {
+
+}

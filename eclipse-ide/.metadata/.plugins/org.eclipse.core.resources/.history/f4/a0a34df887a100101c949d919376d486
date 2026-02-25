@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ofertadisciplina
+
+    
+server:
+  port: ${SERVER_PORT:8081}
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/${banco}
+    username: ${usr}
+    password: ${pas}
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,21 @@
+package ucsal.oferta.repository;
+
+import org.junit.jupiter.api.BeforeAll;
+
+public class RepositoryTest {
+
+	private static final PostgresqlContainer postgres = PostgresqlContainer.getInstance();
+
+	@BeforeAll
+	static void startContainer() {
+		postgres.start();
+	}
+
+	@DynamicPropertySource
+	static void registerDbProperties(DynamicPropertyRegistry registry) {
+		registry.add("spring.datasource.url", postgres::getJdbcUrl);
+		registry.add("spring.datasource.username", postgres::getUsername);
+		registry.add("spring.datasource.password", postgres::getPassword);
+	}
+
+}

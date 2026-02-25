@@ -1,0 +1,26 @@
+package others;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class stream_alt {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	public void createData() {
+		List<String> items = new ArrayList<String>();
+		items.add("one");
+		items.add("two");
+		items.add("one");
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

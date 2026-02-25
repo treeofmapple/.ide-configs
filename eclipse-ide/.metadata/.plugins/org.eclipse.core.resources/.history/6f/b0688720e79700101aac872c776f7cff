@@ -1,0 +1,18 @@
+package com.tom.service.datagen.old;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.tom.service.datagen.controller.Flux;
+
+public class OldContent {
+
+	@PostMapping(value = "/employee/progress/{quantity}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<String> dataGenerationWithProgress(@PathVariable int quantity) {
+		return service.generateEmployeeDataWithProgress(quantity).map(data -> "Progress: " + data)
+				.concatWith(Mono.just("Completed. Download your file at: /api/v1/employee/download/"));
+	}
+}
+	
+	

@@ -1,0 +1,15 @@
+package ucsal.oferta.config;
+
+@TestConfiguration
+public class TestBeansConfig {
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(12);
+    }
+
+    @Bean
+    public Faker faker() {
+        return new Faker();
+    }
+}

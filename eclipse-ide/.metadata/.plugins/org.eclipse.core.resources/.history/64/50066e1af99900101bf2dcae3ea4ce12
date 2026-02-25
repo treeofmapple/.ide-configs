@@ -1,0 +1,33 @@
+package com.tom.service.datagen.service;
+
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+@Service
+@RequiredArgsConstructor
+public class SchoolService {
+
+	
+	public byte[] generateSchoolData() {
+		return null;
+	}	
+	
+	private void generateSchools() {
+		
+	}
+	
+	public byte[] retrieveFromTempStorage(String fileId) {
+		return null;
+	}
+
+	
+	private void clearPreviousData() {
+		if (!csvStorage.isEmpty()) {
+			csvStorage.clear();
+		}
+	}
+		
+}

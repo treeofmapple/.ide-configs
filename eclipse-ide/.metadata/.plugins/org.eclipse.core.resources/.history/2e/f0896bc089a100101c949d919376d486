@@ -1,0 +1,16 @@
+package ucsal.oferta.professor.dto;
+
+import ucsal.oferta.professor.model.entity.Dia;
+import ucsal.oferta.professor.model.entity.HorarioAula;
+import ucsal.oferta.professor.model.entity.Professor;
+
+import java.time.LocalTime;
+import java.util.List;
+
+public record DisponibilidadeDTO(
+        Long id,
+        Professor professor,
+        Dia dia,
+        List<HorarioAula> horarioAulas,
+        Integer semestre
+) {  }

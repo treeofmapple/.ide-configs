@@ -1,0 +1,19 @@
+package com.tom.service.datagen.service;
+
+import org.springframework.stereotype.Component;
+
+import com.tom.service.datagen.dto.EmployeeRequest;
+
+import jakarta.validation.Valid;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+@Component
+public class SchoolUtils {
+
+	public void setVariables(@Valid EmployeeRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

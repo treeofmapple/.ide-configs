@@ -1,0 +1,5 @@
+package ucsal.oferta.infraestrutura.model.exception;
+
+public class EspacoException extends RuntimeException {
+
+}

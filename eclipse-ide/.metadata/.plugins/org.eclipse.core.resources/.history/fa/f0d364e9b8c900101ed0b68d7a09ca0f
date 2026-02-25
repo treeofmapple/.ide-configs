@@ -1,0 +1,5 @@
+package com.tom.vehicle.normal.dto;
+
+public record PageVehicleResponse() {
+
+}

@@ -1,0 +1,13 @@
+services:
+  oferta-disciplina-tester:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: oferta-disciplina-tester
+    environment:
+      TESTCONTAINERS_RYUK_DISABLED: "true"
+      TESTCONTAINERS_REUSE_ENABLE: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ~/.m2:/root/.m2
+    network_mode: "bridge"

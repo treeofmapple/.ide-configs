@@ -1,0 +1,34 @@
+1763612256034	Delete elements
+1763613644899	Rename type 'VehicleIndexer'
+1763613673834	Move compilation units
+1763613683395	Rename package 'com.tom.rabbitmq.realtime.processes.produce'
+1763613688055	Rename type 'DeliverIndexer'
+1763613690238	Copy compilation units
+1763613693823	Rename type 'DeliverProducer'
+1763613697047	Rename type 'VehicleProducer'
+1763614426796	Rename type 'DeliveryRepostiory'
+1763614662590	Move compilation unit
+1763614704514	Delete elements
+1763614709243	Delete element
+1763657062004	Rename field 'bookRepository'
+1763657070716	Rename local variable 'book'
+1763657080994	Rename method 'processGenerateAnEvaluation'
+1763657084649	Rename method 'processBook'
+1763657087770	Rename method 'genBook'
+1763660098202	Rename type 'BookStreamProducer'
+1763660128433	Move compilation unit
+1763660719557	Delete element
+1763662513803	Move compilation unit
+1763664844917	Rename local variable 'id'
+1763664849787	Rename local variable 'plate'
+1763665053153	Rename field 'ThreadLimit'
+1763666331091	Rename field 'VEHICLE_TELEMETRY_ROUTING_KEY'
+1763670233826	Rename local variable 'query'
+1763675334878	Delete element
+1763679145867	Rename type 'RawWebsocket'
+1763679359213	Rename compilation unit 'RawVehicleHandler.java'
+1763679425014	Move compilation units
+1763680115316	Rename field 'rawTelemetryHandler'
+1763680982918	Rename field 'broadcaster'
+1763681192026	Move compilation unit
+1763681196303	Delete element

@@ -1,0 +1,8 @@
+package ucsal.oferta.testcontainers;
+
+public class PostgresqlContainer extends PostgreSQLContainer<PostgresqlContainer> {
+
+	
+	
+	
+}

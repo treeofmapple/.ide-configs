@@ -1,0 +1,17 @@
+package com.tom.service.datagen.dto;
+
+public record SchoolRequest(
+		
+		long alunos,
+		
+		long disciplina,
+		
+		long turmas,
+		
+		long matriculas
+		
+		) {
+
+	
+	
+}

@@ -1,0 +1,37 @@
+package others;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class stream_alt {
+
+	static List<String> items = new ArrayList<String>();
+	
+	public static void main(String[] args) {
+		System.out.println(createData());
+	}
+
+	public static String createData() {
+		items.add("one");
+		items.add("two");
+		items.add("three");
+
+		Stream<String> streams = items.stream();
+
+		return streams.map(value -> value.toLowerCase()).collect(Collectors.joining(", "));
+	}
+
+	public static String nonTerminal() {
+		items.add("one");
+		items.add("two");
+		items.add("three");
+		Stream<String> streams = items.stream();
+		Stream<String> stringStream = streams.map((value ->{
+			return value.toLowerCase();
+		})); 
+		
+	}
+	
+}

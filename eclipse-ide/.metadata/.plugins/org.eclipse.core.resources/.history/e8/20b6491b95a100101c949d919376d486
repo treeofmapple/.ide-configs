@@ -1,0 +1,37 @@
+package ucsal.oferta.professor.model.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import ucsal.oferta.academico.model.entity.Disciplina;
+import ucsal.oferta.professor.dto.InteresseDisciplinaDTO;
+
+import java.util.List;
+
+@Getter
+@Setter
+@Entity
+public class InteresseDisciplina {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private Professor professor;
+
+    @OneToMany
+    private List<Disciplina> disciplina;
+
+    private Integer semestre;
+
+    public InteresseDisciplina() { }
+
+    public InteresseDisciplina(InteresseDisciplinaDTO dto) {
+        this.id = dto.id();
+        this.professor = dto.professor();
+        this.disciplina = dto.disciplina();
+        this.semestre = dto.semestre();
+    }
+
+}

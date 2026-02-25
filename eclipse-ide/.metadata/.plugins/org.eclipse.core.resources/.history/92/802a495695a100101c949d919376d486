@@ -1,0 +1,24 @@
+package ucsal.oferta.professor.model.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public enum HorarioAula {
+    M1("07:00 - 08:15"), M2("08:25 - 09:40"), M3("09:50 - 11:05"), M4("11:15 - 12:30"),
+    T1("13:30 - 14:45"), T2("14:55 - 16:00"), T3("16:10 - 17:15"), T4("17:25 - 18:40"),
+    N1("19:00 - 20:15"), N2("20:25 - 21:40");
+
+    private String horario;
+
+    private HorarioAula(String horario) {
+        this.horario = horario;
+    }
+
+    public String getHorario(){
+        return this.horario;
+    }
+}

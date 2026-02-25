@@ -1,0 +1,10 @@
+package ucsal.oferta.repository;
+
+public class RepositoryTest {
+
+    @BeforeAll
+    static void startContainer() {
+        postgres.start();
+    }
+	
+}

@@ -1,0 +1,50 @@
+package ucsal.oferta.infraestrutura.model.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ucsal.oferta.infraestrutura.dto.EspacoDTO;
+
+import java.util.List;
+
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "espaco")
+public class Espaco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+
+    private String sigla;
+    private String descricao;
+    private int capacidadeMaxima;
+
+    @ManyToMany
+    private List<Equipamento> recursoDisponiveis;
+
+    private String localizacao;
+
+    @Enumerated(EnumType.STRING)
+    @OneToMany
+    private TipoEspaco tipoEspaco;
+
+    public Espaco() {
+    }
+
+    public Espaco(EspacoDTO dto) {
+        this.id = dto.id();
+        this.sigla = dto.sigla();
+        this.descricao = dto.descricao();
+        this.capacidadeMaxima = dto.capacidadeMaxima();
+        this.recursoDisponiveis = dto.recursoDisponiveis();
+        this.localizacao = dto.localizacao();
+        this.tipoEspaco = dto.tipoEspaco();
+    }
+
+}

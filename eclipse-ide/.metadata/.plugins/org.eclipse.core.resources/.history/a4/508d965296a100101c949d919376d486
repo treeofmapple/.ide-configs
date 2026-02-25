@@ -1,0 +1,16 @@
+package ucsal.oferta.infraestrutura.dto;
+
+import java.util.List;
+
+import ucsal.oferta.infraestrutura.model.entity.Equipamento;
+import ucsal.oferta.infraestrutura.model.entity.TipoEspaco;
+
+public record EspacoDTO(
+    String id,
+    String sigla,
+    String descricao,
+    int capacidadeMaxima,
+    List<Equipamento> recursoDisponiveis,
+    String localizacao,
+    TipoEspaco tipoEspaco
+) {}

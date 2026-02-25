@@ -1,0 +1,38 @@
+1763414265734	Delete element
+1763415282779	Rename local variable 'name'
+1763415287000	Rename type 'UsernameService'
+1763415290063	Rename type 'UsernameController'
+1763483420387	Rename package 'com.tom.first.username.request'
+1763488895182	Copy files
+1763488963157	Copy compilation unit
+1763488975692	Copy compilation unit
+1763489202521	Move compilation units
+1763489203294	Delete element
+1763489897640	Rename local variable 'email'
+1763492786426	Copy files
+1763496508500	Copy compilation unit
+1763498538506	Copy compilation unit
+1763498546876	Copy compilation unit
+1763498554283	Copy compilation units
+1763498559435	Copy compilation units
+1763498582381	Copy compilation units
+1763499075268	Rename type 'UserDeletedEvent'
+1763499139770	Move compilation unit
+1763499511819	Rename type 'UserSearchRepository'
+1763499777076	Rename type 'UserOutboxBuild'
+1763499814526	Rename type 'BookOutboxBuild'
+1763499819630	Rename type 'UsernameOutboxBuild'
+1763504314043	Rename local variable 'vehicle'
+1763506919890	Copy package
+1763506921633	Copy package
+1763507093894	Rename type 'BookSearchRepository'
+1763507099343	Copy compilation unit
+1763602617671	Rename method 'existsByUsername'
+1763602623926	Rename local variable 'username'
+1763602629182	Rename local variable 'username'
+1763602637408	Rename method 'deleteByUsername'
+1763740715770	Rename method 'processAndGenerateUser'
+1763740790967	Rename type 'UserDataStreaming'
+1763740886957	Rename method 'createUsername'
+1763741236757	Rename method 'startCreatingVehicles'
+1763741241601	Rename method 'stopCreatingVehicles'

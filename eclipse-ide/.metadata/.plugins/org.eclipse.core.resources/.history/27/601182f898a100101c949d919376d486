@@ -1,0 +1,10 @@
+package ucsal.oferta;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class OfertadisciplinaApplicationTests {
+
+}

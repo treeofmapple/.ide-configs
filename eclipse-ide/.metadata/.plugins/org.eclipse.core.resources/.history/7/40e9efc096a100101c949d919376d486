@@ -1,0 +1,131 @@
+package ucsal.oferta.repository;
+
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
+
+import ucsal.oferta.testcontainers.PostgresqlContainer;
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+@DataJpaTest
+@Import(PostgresqlContainer.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class EspacoRepositoryTest extends RepositoryTest {
+
+    @Autowired
+    private EspacoRepository espacoRepository;
+
+    @Autowired
+    private EquipamentoRepository equipamentoRepository;
+
+    private Faker faker = new Faker();
+
+    @Test
+    @Order(1)
+    void createEspacoTest() {
+        var dataForTest = generateAnEspaco();
+        String espacoId = (String) dataForTest.get("id");
+        Assertions.assertThat(espacoId).isNotNull();
+    }
+
+    @Test
+    @Order(2)
+    void createEspacoAndFind() {
+        var dataForTest = generateAnEspaco();
+        String espacoId = (String) dataForTest.get("id");
+
+        Optional<Espaco> found = espacoRepository.findById(espacoId);
+        Assertions.assertThat(found).isPresent();
+    }
+
+    @Test
+    @Order(3)
+    void findEspacoCreated() {
+        var dataForTest = generateAnEspaco();
+        String espacoId = (String) dataForTest.get("id");
+        String expectedSigla = (String) dataForTest.get("sigla");
+        TipoEspaco expectedTipo = (TipoEspaco) dataForTest.get("tipoEspaco");
+
+        Optional<Espaco> found = espacoRepository.findById(espacoId);
+
+        Assertions.assertThat(found).isPresent();
+        found.ifPresent(espaco -> {
+            Assertions.assertThat(espaco.getSigla()).isEqualTo(expectedSigla);
+            Assertions.assertThat(espaco.getTipoEspaco()).isEqualTo(expectedTipo);
+            Assertions.assertThat(espaco.getRecursoDisponiveis()).isNotEmpty();
+        });
+    }
+
+    @Test
+    @Order(4)
+    void updateCreatedEspaco() {
+        var dataForTest = generateAnEspaco();
+        String espacoId = (String) dataForTest.get("id");
+
+        String newDescricao = faker.lorem().sentence(10);
+
+        Optional<Espaco> toUpdate = espacoRepository.findById(espacoId);
+        Assertions.assertThat(toUpdate).isPresent();
+
+        Espaco updated = toUpdate.get();
+        updated.setDescricao(newDescricao);
+        espacoRepository.save(updated);
+
+        Optional<Espaco> foundUpdated = espacoRepository.findById(espacoId);
+        Assertions.assertThat(foundUpdated).isPresent();
+        Assertions.assertThat(foundUpdated.get().getDescricao()).isEqualTo(newDescricao);
+    }
+
+    @Test
+    @Order(5)
+    void deleteCreatedEspaco() {
+        var dataForTest = generateAnEspaco();
+        String espacoId = (String) dataForTest.get("id");
+
+        espacoRepository.deleteById(espacoId);
+
+        Optional<Espaco> foundAfterDelete = espacoRepository.findById(espacoId);
+        Assertions.assertThat(foundAfterDelete).isNotPresent();
+    }
+
+    @AfterAll
+    void clearAllData() {
+        // Order is important due to foreign key constraints
+        espacoRepository.deleteAll();
+        equipamentoRepository.deleteAll();
+    }
+
+    private Equipamento createAndSaveEquipamento() {
+        Equipamento equipamento = new Equipamento(null, faker.commerce().productName(), faker.commerce().department(), faker.lorem().sentence());
+        return equipamentoRepository.save(equipamento);
+    }
+
+    private Map<String, Object> generateAnEspaco() {
+        var espaco = createEspaco();
+        var savedEspaco = espacoRepository.save(espaco);
+        Map<String, Object> data = new HashMap<>();
+        data.put("id", savedEspaco.getId());
+        data.put("sigla", savedEspaco.getSigla());
+        data.put("descricao", savedEspaco.getDescricao());
+        data.put("capacidadeMaxima", savedEspaco.getCapacidadeMaxima());
+        data.put("localizacao", savedEspaco.getLocalizacao());
+        data.put("tipoEspaco", savedEspaco.getTipoEspaco());
+        return data;
+    }
+
+    private Espaco createEspaco() {
+        String id = UUID.randomUUID().toString();
+        String sigla = faker.letterify("???-###");
+        String descricao = faker.lorem().sentence();
+        int capacidadeMaxima = faker.number().numberBetween(20, 100);
+        List<Equipamento> recursos = Collections.singletonList(createAndSaveEquipamento());
+        String localizacao = "Prédio " + faker.number().numberBetween(1, 5) + ", Sala " + faker.number().numberBetween(101, 599);
+        TipoEspaco tipoEspaco = faker.options().option(TipoEspaco.class);
+        
+        return new Espaco(id, sigla, descricao, capacidadeMaxima, recursos, localizacao, tipoEspaco);
+    }
+	
+}

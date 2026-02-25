@@ -1,0 +1,62 @@
+package ucsal.oferta.infraestrutura.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.Valid;
+import ucsal.oferta.infraestrutura.dto.EquipamentoDTO;
+import ucsal.oferta.infraestrutura.dto.SolicitacaoReservaDTO;
+import ucsal.oferta.infraestrutura.model.entity.Equipamento;
+import ucsal.oferta.infraestrutura.model.entity.SolicitacaoReserva;
+import ucsal.oferta.infraestrutura.model.service.SolicitacaoReservaService;
+
+/**
+ * @author luisvso.dev@gmail.com
+ * @date 15/08/2025
+ *
+ */
+@RestController
+@RequestMapping("/solicitacao")
+public class SolicitacaoReservaController {
+
+    @Autowired
+    SolicitacaoReservaService solicitacaoReservaService;
+
+    // Cria uma solicitacaoReserva
+    @PostMapping("/add")
+    public SolicitacaoReserva create(@RequestBody @Valid SolicitacaoReservaDTO dto) {
+        return solicitacaoReservaService.create(dto);
+    }
+
+    @PostMapping("/addAll")
+    public List<SolicitacaoReserva> create(@RequestBody @Valid List<SolicitacaoReservaDTO> dtos) {
+        return solicitacaoReservaService.create(dtos);
+    }
+
+    @PostMapping("/upd")
+    public SolicitacaoReserva update(@RequestBody @Valid SolicitacaoReservaDTO dto) {
+        return solicitacaoReservaService.update(dto);
+    }
+
+    @PostMapping("/del")
+    public SolicitacaoReserva delete(@RequestBody @Valid SolicitacaoReservaDTO dto) {
+        return solicitacaoReservaService.delete(dto);
+    }
+
+    @GetMapping("/one")
+    public SolicitacaoReserva find(@RequestBody @Valid SolicitacaoReservaDTO dto) {
+        return solicitacaoReservaService.find(dto);
+    }
+
+    @GetMapping("/all")
+    public List<SolicitacaoReserva> findAll() {
+        return solicitacaoReservaService.findall();
+    }
+
+}

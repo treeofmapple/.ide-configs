@@ -1,0 +1,31 @@
+1763492783615	Delete elements
+1763495523861	Delete element
+1763496536948	Delete elements
+1763498351497	Delete elements
+1763498409781	Delete element
+1763498641890	Delete elements
+1763499323928	Delete element
+1763499504856	Rename type 'UsernameIndexer'
+1763499527579	Rename type 'UserDeletedEvent'
+1763499533638	Rename type 'UserCreatedEvent'
+1763502281605	Delete element
+1763502376602	Delete element
+1763503319707	Rename type 'ItemRepository'
+1763503338472	Rename field 'repository'
+1763503995551	Rename local variable 'request'
+1763504016167	Rename local variable 'request'
+1763504393092	Rename local variable 'vehicle'
+1763504599027	Delete element
+1763505417164	Rename field 'evaluationRepository'
+1763506239084	Delete elements
+1763506354987	Copy compilation units
+1763506486596	Rename method 'findByAllBooksFromAuthor'
+1763506494350	Rename method 'findAllByBooksFromAuthor'
+1763506904903	Copy package
+1763506908596	Copy package
+1763614586446	Copy compilation units
+1763741201964	Rename method 'processGenerateAnEvaluation'
+1763741205633	Rename method 'processEvaluation'
+1763741280626	Rename method 'startCreatingVehicles'
+1763741286639	Rename method 'stopCreatingVehicles'
+1763745454845	Rename local variable 'gen'

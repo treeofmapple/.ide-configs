@@ -1,0 +1,26 @@
+1758564902659	Copy files
+1759001922807	Move file
+1759001925132	Delete element
+1759004800567	Rename package 'com.tom.service.shortener.request'
+1759004814665	Delete elements
+1759004847956	Delete element
+1759006136932	Move compilation units
+1759006139824	Move compilation unit
+1759006382882	Copy files
+1759006388050	Copy elements
+1759006519029	Rename resource 'application-log.yml'
+1759008410952	Rename resource 'application-database.yml'
+1759008436848	Delete element
+1759008555235	Delete element
+1759008572579	Delete elements
+1759008605715	Copy package
+1759008706508	Delete element
+1759009437772	Rename type 'URLController'
+1759009444807	Rename type 'RedirectController'
+1759013259341	Delete element
+1759013391023	Delete element
+1759014803290	Rename type 'DevelopmentController'
+1759015788114	Rename type 'RedisScheduled'
+1759016423688	Rename type 'RedisUtil'
+1759016427611	Rename type 'URLUtil'
+1759017088235	Rename type 'DurationUtil'

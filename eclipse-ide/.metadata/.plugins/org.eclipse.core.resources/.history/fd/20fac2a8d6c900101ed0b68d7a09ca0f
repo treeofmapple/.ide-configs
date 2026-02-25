@@ -1,0 +1,41 @@
+package com.tom.vehicle.normal.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.stereotype.Repository;
+
+import com.tom.vehicle.normal.model.Vehicle;
+
+import jakarta.transaction.Transactional;
+
+@Repository
+public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+
+	Optional<Vehicle> findByPlate(String plate);
+	
+	boolean existsByPlate(String plate);
+
+	@Modifying
+    @Transactional
+	void deleteByPlate(String plate);
+
+	@Query("""
+		       SELECT v FROM Vehicle v 
+		       WHERE v.id <> :id 
+		         AND (
+		               (:plate IS NOT NULL AND v.plate = :plate)
+		            OR (:brand IS NOT NULL AND v.brand = :brand)
+		            OR (:model IS NOT NULL AND v.model = :model)
+		         )
+		       """)
+		List<Vehicle> findConflicts(
+		        @Param("id") Long id,
+		        @Param("plate") String plate,
+		        @Param("brand") String brand,
+		        @Param("model") String model
+		);
+
+	
+}

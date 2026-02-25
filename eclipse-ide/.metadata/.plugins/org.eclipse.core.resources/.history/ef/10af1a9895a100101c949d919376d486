@@ -1,0 +1,30 @@
+package ucsal.oferta.repository;
+
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
+
+import net.datafaker.Faker;
+import ucsal.oferta.professor.model.repository.DisponibilidadeRepository;
+import ucsal.oferta.professor.model.repository.ProfessorRepository;
+import ucsal.oferta.testcontainers.PostgresqlContainer;
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+@DataJpaTest
+@Import(PostgresqlContainer.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class DisponibilidadeRepositoryTest extends RepositoryTest {
+
+    @Autowired
+    private DisponibilidadeRepository disponibilidadeRepository;
+
+    @Autowired
+    private ProfessorRepository professorRepository;
+
+    private Faker faker = new Faker();
+	
+}

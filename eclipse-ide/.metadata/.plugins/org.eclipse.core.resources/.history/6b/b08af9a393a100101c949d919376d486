@@ -1,0 +1,114 @@
+package ucsal.oferta.repository;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import net.datafaker.Faker;
+import net.datafaker.providers.base.Text;
+import ucsal.oferta.security.model.User;
+import ucsal.oferta.security.repository.UserRepository;
+import ucsal.oferta.testcontainers.PostgresqlContainer;
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+@DataJpaTest
+@Import(PostgresqlContainer.class)
+public class UserRepositoryTest extends RepositoryTest {
+
+	@Autowired
+	private UserRepository repository;
+
+	@Autowired
+	private Faker faker = new Faker();
+
+	@Autowired
+	private PasswordEncoder encoder;
+
+	@Test
+	@Order(1)
+	void createUserTest() {
+		var userCreated = createUser();
+		var saved = repository.save(userCreated);
+		Assertions.assertThat(saved.getId()).isNotNull();
+	}
+
+	@Test
+	@Order(2)
+	void createUserAndFind() {
+		var userCreated = createUser();
+		var saved = repository.save(userCreated);
+		Assertions.assertThat(saved.getId()).isNotNull();
+
+		Optional<User> found = repository.findById(saved.getId());
+		Assertions.assertThat(found).isPresent();
+		found.ifPresent(user -> {
+			Assertions.assertThat(user.get().getUsername()).isEqualTo(userCreated.getUsername());
+			Assertions.assertThat(user.get().getPassword()).isEqualTo(userCreated.getPassword());
+		});
+	}
+
+	@Test
+	@Order(3)
+	void findUserCreated() {
+		var dataForTest = generateAnUser();
+		
+	    Integer userId = (Integer) dataForTest.get("id");
+	    String expectedUsername = (String) dataForTest.get("username");
+	    String expectedPassword = (String) dataForTest.get("password");
+		
+	    Optional<User> found = repository.findById(userId);
+
+	    Assertions.assertThat(found).isPresent();
+	    found.ifPresent(user -> {
+	        Assertions.assertThat(user.getUsername()).isEqualTo(expectedUsername);
+	        Assertions.assertThat(user.getPassword()).isEqualTo(expectedPassword);
+	    });
+	}
+
+	@Test
+	@Order(4)
+	void updateCreatedUser() {
+		var userCreated = createUser();
+		var saved = repository.save(userCreated);
+
+		String newUsername = faker.name().femaleFirstName();
+
+		saved.setUsername(newUsername);
+		repository.save(saved);
+		Optional<User> foundUpdated = repository.findById(saved.getId());
+		Assertions.assertThat(foundUpdated).isPresent();
+		Assertions.assertThat(foundUpdated.get().getUsername()).isEqualTo(newUsername);
+	}
+
+	@Test
+	@Order(5)
+	void deleteCreatedUser() {
+
+	}
+
+	private Map<String, Object> generateAnUser() {
+		var user = createUser();
+		var savedUser = repository.save(user);
+		Map<String, Object> userData = new HashMap<>();
+	    userData.put("id", savedUser.getId());
+	    userData.put("username", savedUser.getUsername());
+	    userData.put("password", savedUser.getPassword());
+		return userData; 
+	}
+	
+	private User createUser() {
+		return new User(null, faker.name().maleFirstName(),
+				encoder.encode(faker.text().text(Text.TextSymbolsBuilder.builder().len(8).build())));
+	}
+
+	// At end clear all the data created there
+
+}

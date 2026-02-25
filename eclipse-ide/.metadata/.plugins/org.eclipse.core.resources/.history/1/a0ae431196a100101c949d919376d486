@@ -1,0 +1,34 @@
+package ucsal.oferta.infraestrutura.model.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+import ucsal.oferta.infraestrutura.dto.EquipamentoDTO;
+
+@Getter
+@Setter
+@Entity
+public class Equipamento {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+
+    private String nome;
+    private String tipo;
+    private String descricao;
+
+    public Equipamento() {
+    }
+
+    public Equipamento(EquipamentoDTO dto) {
+        this.id = dto.id();
+        this.nome = dto.nome();
+        this.tipo = dto.tipo();
+        this.descricao = dto.descricao();
+    }
+
+}

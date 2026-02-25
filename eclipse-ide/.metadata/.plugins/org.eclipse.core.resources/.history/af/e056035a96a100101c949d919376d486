@@ -1,0 +1,8 @@
+package ucsal.oferta.infraestrutura.dto;
+
+import ucsal.oferta.infraestrutura.model.entity.StatusSolicitacao;
+
+public record SolicitacaoReservaDTO(String idEspaco,
+    String idSolicitacao,
+    String finalidade,
+    StatusSolicitacao statusSolicitacao) {}

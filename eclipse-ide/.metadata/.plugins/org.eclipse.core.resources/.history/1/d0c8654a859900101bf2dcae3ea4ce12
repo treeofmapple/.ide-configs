@@ -1,0 +1,10 @@
+package com.tom.service.datagen.exception;
+
+import org.springframework.http.HttpStatus;
+
+import com.tom.service.datagen.exception.global.CustomGlobalException;
+
+public class ClientAbortException extends CustomGlobalException {
+	public NotFoundException(String message) {
+		super(message, HttpStatus.NOT_FOUND);
+}

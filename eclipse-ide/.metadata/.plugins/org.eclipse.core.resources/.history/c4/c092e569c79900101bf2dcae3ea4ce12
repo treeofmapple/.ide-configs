@@ -1,0 +1,14 @@
+package com.tom.service.datagen.service;
+
+import com.tom.service.datagen.dto.EmployeeRequest;
+
+import jakarta.validation.Valid;
+
+public class SchoolUtils {
+
+	public void setVariables(@Valid EmployeeRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

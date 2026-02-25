@@ -1,0 +1,23 @@
+package ucsal.oferta.security.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import ucsal.oferta.security.model.User;
+import ucsal.oferta.security.service.MyUserDetailsService;
+import ucsal.oferta.security.service.UserService;
+
+@RestController
+@RequestMapping("/registro")
+public class UserController {
+
+    @Autowired
+    private UserService service;
+
+    @PostMapping("/add")
+    public User register(@RequestBody User user) {
+        return service.saveUser(user);
+    }
+    }

@@ -1,0 +1,12 @@
+1755128878128	Delete element
+1755132611505	Rename resource '.env.sample'
+1755204931744	Delete element
+1755205355012	Rename method 'deleteById'
+1755205637861	Rename local variable 'employeeCode'
+1755205645065	Rename local variable 'employeeCode'
+1755205654339	Rename method 'existsByEmployeeCode'
+1755205659570	Rename local variable 'employeeCode'
+1755205691090	Rename method 'findByEmployeeCode'
+1755205697715	Rename method 'findByID'
+1755205708319	Rename local variable 'employeeCode'
+1755214883210	Delete element

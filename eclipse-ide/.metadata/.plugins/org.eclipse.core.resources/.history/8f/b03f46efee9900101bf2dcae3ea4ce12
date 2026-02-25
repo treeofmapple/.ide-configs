@@ -1,0 +1,26 @@
+package com.tom.service.datagen.dto;
+
+import jakarta.validation.constraints.PositiveOrZero;
+
+public record SchoolRequest(
+		
+		@PositiveOrZero
+		short aluno,
+		
+		@PositiveOrZero
+		short disciplina,
+		
+		@PositiveOrZero
+		short turma,
+		
+		@PositiveOrZero
+		short matricula,
+		
+		@PositiveOrZero
+		short genderPercentage
+		
+		) {
+
+	
+	
+}

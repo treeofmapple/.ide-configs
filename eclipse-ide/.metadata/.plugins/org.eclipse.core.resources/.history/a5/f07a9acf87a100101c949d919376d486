@@ -1,0 +1,48 @@
+package ucsal.oferta.config;
+
+import java.util.UUID;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import lombok.RequiredArgsConstructor;
+import ucsal.oferta.security.repository.UserRepository;
+
+@Configuration
+@RequiredArgsConstructor
+public class ApplicationConfig {
+
+	private final UserRepository repository;
+
+	@Bean
+	UserDetailsService userDetailsService() {
+		return identifier -> {
+			try {
+				return repository.findById(UUID.fromString(identifier))
+						.orElseThrow(() -> new NotFoundException("User not found with ID: " + identifier));
+			} catch (IllegalArgumentException e) {
+				return repository.findByIdentifier(identifier)
+						.orElseThrow(() -> new NotFoundException("User not found with identifier: " + identifier));
+			}
+		};
+	}
+	
+	@Bean
+	AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+		return config.getAuthenticationManager();
+	}
+	
+	@Bean
+	PasswordEncoder passwordEncoder() {
+
+		return new BCryptPasswordEncoder(12);
+
+	}
+	
+}

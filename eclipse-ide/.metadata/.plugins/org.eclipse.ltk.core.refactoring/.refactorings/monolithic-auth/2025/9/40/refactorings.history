@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CorsConfig.java&apos; to &apos;service-url-shortener/src/main/java/com.tom.service.shortener.config&apos;&#x0D;&#x0A;- Original project: &apos;monolithic-auth&apos;&#x0D;&#x0A;- Destination element: &apos;service-url-shortener/src/main/java/com.tom.service.shortener.config&apos;&#x0D;&#x0A;- Original element: &apos;com.tom.auth.monolithic.config.CorsConfig.java&apos;" description="Copy compilation unit" destination="=service-url-shortener/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tom.service.shortener.config" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tom.auth.monolithic.config{CorsConfig.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1759034210347" units="1" version="1.0"/>
+</session>

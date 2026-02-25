@@ -1,0 +1,8 @@
+package ucsal.oferta.repository;
+
+import ucsal.oferta.testcontainers.RepositoryTest;
+
+public class EspacoRepositoryTest extends RepositoryTest {
+
+
+}

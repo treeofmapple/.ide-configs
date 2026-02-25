@@ -1,0 +1,33 @@
+package ucsal.oferta.academico.model.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import ucsal.oferta.academico.dto.DisciplinaDTO;
+
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "disciplina")
+public class Disciplina {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String codigo;
+    private String nome;
+    private Integer ch;
+
+    public Disciplina(DisciplinaDTO dto) {
+        this.id = dto.id();
+        this.codigo = dto.codigo();
+        this.nome = dto.nome();
+        this.ch = dto.ch();
+    }
+}

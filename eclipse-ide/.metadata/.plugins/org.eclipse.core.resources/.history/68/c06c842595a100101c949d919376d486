@@ -1,0 +1,44 @@
+package ucsal.oferta.professor.model.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ucsal.oferta.professor.dto.DisponibilidadeDTO;
+
+import java.util.List;
+
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "disponibilidade")
+public class Disponibilidade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private Dia dia;
+
+    @Enumerated(EnumType.STRING)
+    private List<HorarioAula> horarioAulas;
+
+    private Integer semestre;
+
+    @ManyToOne
+    private Professor professor;
+
+    public Disponibilidade() { }
+
+    public Disponibilidade(DisponibilidadeDTO dto) {
+        this.id = dto.id();
+        this.professor = dto.professor();
+        this.dia = dto.dia();
+        this.horarioAulas = dto.horarioAulas();
+        this.semestre = dto.semestre();
+    }
+}

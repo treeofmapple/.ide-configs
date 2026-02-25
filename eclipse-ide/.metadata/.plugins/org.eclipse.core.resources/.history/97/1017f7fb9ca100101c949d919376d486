@@ -1,0 +1,144 @@
+package ucsal.oferta.repository;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import net.datafaker.Faker;
+import ucsal.oferta.academico.model.entity.Disciplina;
+import ucsal.oferta.academico.model.repository.DisciplinaRepository;
+import ucsal.oferta.professor.model.entity.InteresseDisciplina;
+import ucsal.oferta.professor.model.entity.Professor;
+import ucsal.oferta.professor.model.repository.InteresseDisciplinaRepository;
+import ucsal.oferta.professor.model.repository.ProfessorRepository;
+import ucsal.oferta.testcontainers.RepositoryTest;
+import ucsal.oferta.testcontainers.interfaces.ContainerJpaTest;
+
+@ContainerJpaTest
+public class InteresseDisciplinaRepositoryTest extends RepositoryTest {
+
+	@Autowired
+	private InteresseDisciplinaRepository interesseDisciplinaRepository;
+
+	@Autowired
+	private ProfessorRepository professorRepository;
+
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+
+	@Autowired
+	private Faker faker;
+
+	@Test
+	@Order(1)
+	void createInteresseDisciplinaTest() {
+		var dataForTest = generateAnInteresseDisciplina();
+		Long interesseId = (Long) dataForTest.get("id");
+		Assertions.assertThat(interesseId).isNotNull();
+	}
+
+	@Test
+	@Order(2)
+	void createInteresseDisciplinaAndFind() {
+		var dataForTest = generateAnInteresseDisciplina();
+		Long interesseId = (Long) dataForTest.get("id");
+
+		Optional<InteresseDisciplina> found = interesseDisciplinaRepository.findById(interesseId);
+		Assertions.assertThat(found).isPresent();
+	}
+
+	@Test
+	@Order(3)
+	void findInteresseDisciplinaCreated() {
+		var dataForTest = generateAnInteresseDisciplina();
+		Long interesseId = (Long) dataForTest.get("id");
+		Professor expectedProfessor = (Professor) dataForTest.get("professor");
+		Integer expectedSemestre = (Integer) dataForTest.get("semestre");
+
+		Optional<InteresseDisciplina> found = interesseDisciplinaRepository.findById(interesseId);
+
+		Assertions.assertThat(found).isPresent();
+		found.ifPresent(interesse -> {
+			Assertions.assertThat(interesse.getProfessor().getId()).isEqualTo(expectedProfessor.getId());
+			Assertions.assertThat(interesse.getSemestre()).isEqualTo(expectedSemestre);
+			Assertions.assertThat(interesse.getDisciplina()).isNotEmpty();
+		});
+	}
+
+	@Test
+	@Order(4)
+	void updateCreatedInteresseDisciplina() {
+		var dataForTest = generateAnInteresseDisciplina();
+		Long interesseId = (Long) dataForTest.get("id");
+		Integer newSemestre = 20252;
+
+		Optional<InteresseDisciplina> toUpdate = interesseDisciplinaRepository.findById(interesseId);
+		Assertions.assertThat(toUpdate).isPresent();
+
+		InteresseDisciplina updated = toUpdate.get();
+		updated.setSemestre(newSemestre);
+		interesseDisciplinaRepository.save(updated);
+
+		Optional<InteresseDisciplina> foundUpdated = interesseDisciplinaRepository.findById(interesseId);
+		Assertions.assertThat(foundUpdated).isPresent();
+		Assertions.assertThat(foundUpdated.get().getSemestre()).isEqualTo(newSemestre);
+	}
+
+	@Test
+	@Order(5)
+	void deleteCreatedInteresseDisciplina() {
+		var dataForTest = generateAnInteresseDisciplina();
+		Long interesseId = (Long) dataForTest.get("id");
+
+		interesseDisciplinaRepository.deleteById(interesseId);
+
+		Optional<InteresseDisciplina> foundAfterDelete = interesseDisciplinaRepository.findById(interesseId);
+		Assertions.assertThat(foundAfterDelete).isNotPresent();
+	}
+
+	@AfterAll
+	void clearAllData() {
+		// Order is important
+		interesseDisciplinaRepository.deleteAll();
+		professorRepository.deleteAll();
+		disciplinaRepository.deleteAll();
+	}
+
+	private Professor createAndSaveProfessor() {
+		Professor professor = new Professor(null, faker.name().fullName(), faker.internet().emailAddress());
+		return professorRepository.save(professor);
+	}
+
+	private Disciplina createAndSaveDisciplina() {
+		Disciplina disciplina = new Disciplina(null, faker.educator().course(), faker.lorem().word(),
+				faker.number().numberBetween(40, 80));
+		return disciplinaRepository.save(disciplina);
+	}
+
+	private Map<String, Object> generateAnInteresseDisciplina() {
+		var interesse = createInteresseDisciplina();
+		var savedInteresse = interesseDisciplinaRepository.save(interesse);
+		Map<String, Object> data = new HashMap<>();
+		data.put("id", savedInteresse.getId());
+		data.put("professor", savedInteresse.getProfessor());
+		data.put("disciplina", savedInteresse.getDisciplina());
+		data.put("semestre", savedInteresse.getSemestre());
+		return data;
+	}
+
+	private InteresseDisciplina createInteresseDisciplina() {
+		Professor professor = createAndSaveProfessor();
+		Disciplina disciplina = createAndSaveDisciplina();
+		Integer semestre = 20251; // Example semester
+
+		return new InteresseDisciplina(null, professor, Collections.singletonList(disciplina), semestre);
+	}
+
+}

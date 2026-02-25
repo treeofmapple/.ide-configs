@@ -1,0 +1,197 @@
+use fake::{Dummy, Fake};
+use fake::faker::{name::en::Name, company::en::Bs, lorem::en::{Word,Sentence}};
+use rand::Rng;
+use serde::Serialize;
+use csv::Writer;
+use std::fs::File;
+use std::collections::HashMap;
+
+const NUM_DISCIPLINAS: u32 = 50;
+const NUM_ALUNOS: u32 = 1000;
+const NUM_TURMAS: u32 = 200;
+const NUM_MATRICULAS_PER_TURMA: u32 = 15;
+const NUM_AVALIACAO_PER_TURMA: u32 = 4;
+const NUM_NOTAS_PER_AVALIACAO: u32 = NUM_MATRICULAS_PER_TURMA;
+
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Disciplina {
+    #[dummy(faker = "1..=NUM_DISCIPLINAS")]
+    id: u32,
+    #[dummy(faker = "Bs()")]
+    codigo: String,
+    #[dummy(faker = "Name()")]
+    nome: String,
+}
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Aluno {
+    #[dummy(faker = "1..=NUM_ALUNOS")]
+    id: u32,
+    #[dummy(faker = "10000..=99999")]
+    matricula: u32,
+    #[dummy(faker = "Name()")]
+    nome: String,
+}
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Turma {
+    id: u32,
+    id_disciplina: u32,
+    #[dummy(faker = "2020..=2024")]
+    ano: u16,
+    #[dummy(faker = "1..=2")]
+    semestre: u8,
+}
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Matricula {
+    id: u32,
+    id_aluno: u32,
+    id_turma: u32,
+}
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Avaliacao {
+    id: u32,
+    id_turma: u32,
+    unidade: u8,
+    ordem: u8,
+    peso: f32,
+    #[dummy(faker = "Sentence(5..8)")]
+    descricao: String,
+}
+
+#[derive(Serialize, Dummy, Debug, Clone)]
+struct Nota {
+    id: u32,
+    id_avaliacao: u32,
+    nota: f32,
+}
+
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut rng = rand::thread_rng();
+
+    let mut disciplina_writer = Writer::from_path("disciplinas.csv")?;
+    disciplina_writer.write_record(&["id", "codigo", "nome"])?;
+    let mut disciplinas = Vec::new();
+    for i in 1..=NUM_DISCIPLINAS {
+        let disciplina = Disciplina {
+            id: i,
+            codigo: Word().fake(),
+            nome: Name().fake(),
+        };
+        disciplina_writer.serialize(&disciplina)?;
+        disciplinas.push(disciplina);
+    }
+    disciplina_writer.flush()?;
+    println!("Generated {} disciplinas.", disciplinas.len());
+
+    let mut aluno_writer = Writer::from_path("alunos.csv")?;
+    aluno_writer.write_record(&["id", "matricula", "nome"])?;
+    let mut alunos = Vec::new();
+    for i in 1..=NUM_ALUNOS {
+        let aluno = Aluno {
+            id: i,
+            matricula: (100000..=999999).fake(),
+            nome: Name().fake(),
+        };
+        aluno_writer.serialize(&aluno)?;
+        alunos.push(aluno);
+    }
+    aluno_writer.flush()?;
+    println!("Generated {} alunos.", alunos.len());
+
+    let mut turma_writer = Writer::from_path("turmas.csv")?;
+    turma_writer.write_record(&["id", "id_disciplina", "ano", "semestre"])?;
+    let mut turmas = Vec::new();
+    for i in 1..=NUM_TURMAS {
+        let turma = Turma {
+            id: i,
+            id_disciplina: rng.gen_range(1..=NUM_DISCIPLINAS),
+            ano: (2022..=2024).fake(),
+            semestre: (1..=2).fake(),
+        };
+        turma_writer.serialize(&turma)?;
+        turmas.push(turma);
+    }
+    turma_writer.flush()?;
+    println!("Generated {} turmas.", turmas.len());
+
+
+    let mut matricula_writer = Writer::from_path("matriculas.csv")?;
+    matricula_writer.write_record(&["id", "id_aluno", "id_turma"])?;
+    let mut matriculas = Vec::new();
+    let mut matricula_id_counter = 1;
+    let mut turma_alunos: HashMap<u32, Vec<u32>> = HashMap::new();
+
+    for turma in &turmas {
+        let mut alunos_in_turma = Vec::new();
+        for _ in 0..NUM_MATRICULAS_PER_TURMA {
+            let aluno_id = rng.gen_range(1..=NUM_ALUNOS);
+             if !alunos_in_turma.contains(&aluno_id) {
+                let matricula = Matricula {
+                    id: matricula_id_counter,
+                    id_aluno: aluno_id,
+                    id_turma: turma.id,
+                };
+                matricula_writer.serialize(&matricula)?;
+                matriculas.push(matricula);
+                alunos_in_turma.push(aluno_id);
+                matricula_id_counter += 1;
+            }
+        }
+        turma_alunos.insert(turma.id, alunos_in_turma);
+    }
+    matricula_writer.flush()?;
+    println!("Generated {} matriculas.", matriculas.len());
+
+
+    let mut avaliacao_writer = Writer::from_path("avaliacoes.csv")?;
+    avaliacao_writer.write_record(&["id", "id_turma", "unidade", "ordem", "peso", "descricao"])?;
+    let mut avaliacoes = Vec::new();
+    let mut avaliacao_id_counter = 1;
+    for turma in &turmas {
+        for j in 1..=NUM_AVALIACAO_PER_TURMA {
+            let avaliacao = Avaliacao {
+                id: avaliacao_id_counter,
+                id_turma: turma.id,
+                unidade: ((j + 1) / 2) as u8,
+                ordem: if j % 2 == 0 { 2 } else { 1 },
+                peso: rng.gen_range(0.5..=10.0),
+                descricao: Sentence(3..5).fake(),
+            };
+            avaliacao_writer.serialize(&avaliacao)?;
+            avaliacoes.push(avaliacao);
+            avaliacao_id_counter += 1;
+        }
+    }
+    avaliacao_writer.flush()?;
+    println!("Generated {} avaliacoes.", avaliacoes.len());
+
+    let mut nota_writer = Writer::from_path("notas.csv")?;
+    nota_writer.write_record(&["id", "id_avaliacao", "nota"])?;
+    let mut notas = Vec::new();
+    let mut nota_id_counter = 1;
+    for avaliacao in &avaliacoes {
+        if let Some(alunos_na_turma) = turma_alunos.get(&avaliacao.id_turma) {
+            for _aluno_id in alunos_na_turma {
+                 let nota = Nota {
+                    id: nota_id_counter,
+                    id_avaliacao: avaliacao.id,
+                    nota: rng.gen_range(0.0..=10.0),
+                };
+                nota_writer.serialize(&nota)?;
+                notas.push(nota);
+                nota_id_counter += 1;
+            }
+        }
+    }
+    nota_writer.flush()?;
+    println!("Generated {} notas.", notas.len());
+
+    println!("\nData generation complete!");
+
+    Ok(())
+}

@@ -1,0 +1,8 @@
+package com.tom.service.datagen.security;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SystemConfiguration {
+
+}
