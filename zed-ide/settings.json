@@ -1,6 +1,48 @@
 {
+  "edit_predictions": {
+    "ollama": {
+      "model": "qwen2.5-coder:14b"
+    },
+    "open_ai_compatible_api": {
+      "model": ""
+    },
+    "provider": "ollama"
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwen3.5-coder:14b",
+          "max_tokens": 8192,
+        },
+      ],
+    },
+  },
+
   //#"terminal": {
   //},
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "default_profile": "minimal",
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:14b",
+      "enable_thinking": false
+    },
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "base_keymap": "VSCode",
   "theme": {
     "mode": "dark",
@@ -42,12 +84,6 @@
   "languages": {
     "Rust": {
       "format_on_save": "off",
-      "formatter": {
-        "external": {
-          "command": "rustfmt",
-          "arguments": ["--emit=stdout", "--edition=2021"],
-        },
-      },
     },
     "SCSS": {
       "language_servers": ["scss-lsp", "tailwindcss-language-server"],
@@ -62,43 +98,38 @@
       "completions": {
         "lsp": true,
       },
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"],
-        },
-      },
+      "formatter": "prettier",
     },
     "JavaScript": {
       "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"],
-        },
-      },
+      "formatter": "prettier",
     },
     "TypeScript": {
       "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"],
-        },
-      },
+      "formatter": "prettier",
     },
     "TSX": {
       "language_servers": ["vtsls", "tailwindcss-language-server", "eslint"],
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"],
-        },
-      },
+      "formatter": "prettier",
     },
   },
 
   "lsp": {
+    "clangd": {
+      "binary": {
+        "arguments": [
+          "--compile-commands-dir=build",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+          "--header-insertion=never",
+          "--background-index",
+          "-clang-tidy",
+        ],
+      },
+      "initialization_options": {
+        "fallbackFlags": ["-std=c++20"],
+      },
+    },
     "vtsls": {
       "settings": {
         "typescript": {
@@ -152,6 +183,12 @@
       },
     },
     "jdtls": {
+      "binary": {
+        "path": "/home/pogeku/.tools/jdtls/bin/jdtls",
+        "arguments": [
+          "--jvm-arg=-javaagent:/home/pogeku/.tools/lombok/lombok.jar",
+        ],
+      },
       "initialization_options": {
         "settings": {
           "java": {

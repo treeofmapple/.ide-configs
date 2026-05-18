@@ -92,8 +92,6 @@
       // More important
       "alt-left": "workspace::ActivatePaneLeft",
       "alt-right": "workspace::ActivatePaneRight",
-      "alt-home": "workspace::ActivatePaneLeft",
-      "alt-pageUp": "workspace::ActivatePaneRight",
       "alt-end": "workspace::ActivatePaneUp",
       "alt-pageDown": "workspace::ActivatePaneDown",
       "alt-,": "workspace::SwapPaneLeft",
@@ -119,17 +117,12 @@
         { "direction": "right" },
       ],
 
-      "ctrl-alt-i": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": false,
-        },
-      ],
+      "ctrl-shift-o": "workspace::Open",
       "f12": ["app_menu::OpenApplicationMenu", "Zed"],
 
       "ctrl-shift-,": "pane::SplitAndMoveLeft",
       "ctrl-shift-.": "pane::SplitAndMoveRight",
-      "ctrl-alt-o": "workspace::Open",
+      "ctrl-shift-o": "workspace::Open",
       "ctrl-k ctrl-i": "workspace::AddFolderToProject",
       "ctrl-k ctrl-l": "project_panel::RemoveFromProject",
       "ctrl-k ctrl-o": "editor::ToggleFold",
@@ -275,27 +268,15 @@
     },
   },
   {
-    "context": "(Editor && mode == full)",
-    "bindings": {
-      "ctrl-shift-o": null,
-    },
-  },
-  {
     "context": "Editor",
     "bindings": {
-      "ctrl-shift-o": "editor::OrganizeImports",
+      "ctrl-shift-i": "editor::OrganizeImports",
     },
   },
   {
     "context": "Editor",
     "bindings": {
       "alt-shift-o": null,
-    },
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-shift-f": "editor::FormatSelections",
     },
   },
   {
@@ -477,6 +458,42 @@
     "context": "Editor",
     "bindings": {
       "ctrl-\"": null
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-alt-i": null
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-shift-o": null
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-pagedown": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "alt-pageup": "editor::PageUp"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-f": "editor::Format"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-i": "editor::Format"
     }
   }
 ]
